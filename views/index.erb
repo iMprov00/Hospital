@@ -5,14 +5,16 @@
       <div class="card-body text-center">    <!-- Центрированное содержимое -->
         <label for="date-picker" class="form-label mb-2"><h2>Дата госпитализации</h2></label>    <!-- Подпись поля -->
         <form id="date-form" class="d-inline-block">
-          <input type="text" 
-                 class="form-control fw-bold fs-5 py-2 text-center" 
-                  name="date" 
-                 value="<%= @target_date.strftime('%d.%m.%Y') %>" 
-                 id="date-picker"
-                 placeholder="дд.мм.гггг"
-                 data-input
-                 style="max-width: 150px;">
+            <div class="date-picker-container position-relative">
+              <input type="text" 
+                     class="form-control fw-bold fs-5 py-2 date-picker-input ps-5" 
+                     name="date" 
+                     value="<%= @target_date.strftime('%d.%m.%Y') %>"
+                     id="date-picker"
+                     placeholder="дд.мм.гггг"
+                     data-input>
+              <i class="bi bi-calendar3 date-picker-icon"></i>
+            </div>
         </form>
       </div>
     </div>

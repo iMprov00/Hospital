@@ -71,3 +71,69 @@
 .logo-link:hover .logo-img {
   transform: rotate(-5deg) scale(1.1);
 }
+
+/* Стили для поля выбора даты */
+.date-picker-input {
+  transition: all 0.3s ease;
+  border: 2px solid #dee2e6;
+  cursor: pointer;
+  text-align: center;
+  max-width: 200px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.date-picker-input:hover {
+  transform: translateY(-2px);
+  border-color: var(--main-color);
+  box-shadow: 0 4px 8px rgba(84, 198, 84, 0.1);
+}
+
+.date-picker-input:focus {
+  transform: translateY(-1px);
+  border-color: var(--main-color-dark);
+  box-shadow: 0 0 0 0.25rem rgba(84, 198, 84, 0.25);
+  outline: none;
+}
+
+.date-picker-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Добавляем "подсветку" при фокусе */
+.date-picker-container::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.date-picker-container:hover::after {
+  width: 80%;
+}
+
+.date-picker-input:focus + .date-picker-container::after {
+  width: 100%;
+  background: var(--main-color-dark);
+}
+
+.date-picker-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--main-color);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.date-picker-input:hover ~ .date-picker-icon {
+  color: var(--main-color-dark);
+  transform: translateY(-50%) scale(1.1);
+}
