@@ -43,7 +43,10 @@
   <!-- Навбар -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-4">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/">Госпитализация ДАР</a>
+<a class="navbar-brand fw-bold d-flex align-items-center" href="/">
+  <img src="/images/logo.png" alt="Логотип" style="height: 28px; margin-right: 10px;">
+  Госпитализация ДАР
+</a>
       <div class="d-flex align-items-center">
         <span class="text-white me-3"><%= @target_date.strftime('%d.%m.%Y') %></span>
 
@@ -69,5 +72,54 @@
   <script>
     // Ваш JS-код
   </script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      
+      const bedCard = e.target.closest('.bed-card');
+      const date = '<%= @target_date %>';
+      const bedIndex = bedCard.querySelector('.card-title').textContent.match(/\d+/)[0];
+      const patientInput = bedCard.querySelector('.patient-input');
+      const patientName = patientInput ? patientInput.value : '';
+      
+      const formData = new FormData();
+      formData.append('date', date);
+      formData.append('bed_index', bedIndex);
+      formData.append('patient_name', patientName);
+      
+      try {
+        const response = await fetch('/occupy', {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
+    });
+  });
+});
+</script>
+<script>
+  // Автоматическая отправка формы при изменении даты
+  document.getElementById('date-picker').addEventListener('change', function() {
+    document.getElementById('date-form').submit();
+  });
+
+  // Оставьте ваш существующий код для кнопок "Забронировать/Освободить"
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        // ... ваш существующий код обработки кнопок ...
+      });
+    });
+  });
+</script>
 </body>
 </html>

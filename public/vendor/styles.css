@@ -46,3 +46,9 @@
   .bed-card {
     margin-bottom: 15px;
   }
+
+  .navbar-brand.custom-logo {
+  padding-left: 40px;
+  background: url(/images/logo.svg) left center no-repeat;
+  background-size: 30px;
+}
