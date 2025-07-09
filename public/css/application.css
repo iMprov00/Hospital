@@ -1,0 +1,35 @@
+/* public/css/application.css */
+:root {
+  --main-color: #54c654;
+  --main-color-dark: #3a8a3a;
+}
+
+.navbar-custom {
+  background-color: var(--main-color) !important;
+}
+
+.btn-custom {
+  background-color: var(--main-color);
+  border-color: var(--main-color-dark);
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: var(--main-color-dark);
+  border-color: var(--main-color-dark);
+}
+
+.bed-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.bed-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.occupied-card {
+  background-color: #ffe8e8;
+  border-color: #ff6b6b;
+}

@@ -20,7 +20,7 @@
   <div class="row row-cols-2 row-cols-md-4 g-4">    <!-- Сетка карточек коек -->
     <% @beds.each do |bed| %>    <!-- Цикл по всем койкам -->
       <div class="col">    <!-- Колонка для карточки -->
-        <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100">    <!-- Карточка койки -->
+       <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" data-date="<%= bed.date %>">    <!-- Карточка койки -->
           <div class="card-body text-center">    <!-- Тело карточки -->
             <h5 class="card-title">Койка #<%= bed.bed_index %></h5>    <!-- Номер койки -->
             
