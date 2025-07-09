@@ -3,7 +3,57 @@
   --main-color: #54c654;
   --main-color-dark: #3a8a3a;
 }
+/* Стили для модального окна подтверждения */
+#confirmModal .modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
+#confirmModal .modal-header {
+  padding: 1.2rem 1.5rem;
+}
+
+#confirmModal .modal-body {
+  padding: 2rem 1.5rem;
+}
+
+#confirmModal .modal-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  background-color: #f8f9fa;
+}
+
+#confirmModal .icon-wrapper {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+#confirmModal .btn {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+#confirmModal .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#confirmModal .btn:active {
+  transform: translateY(0);
+}
+
+#confirmMessage {
+  color: var(--main-color-dark);
+  font-weight: 500;
+}
 .navbar-custom {
   background-color: var(--main-color) !important;
 }
@@ -33,7 +83,49 @@
   background-color: #ffe8e8;
   border-color: #ff6b6b;
 }
+/* Стили для модального окна */
+#confirmModal .modal-content {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
 
+#confirmModal .modal-header {
+  border-bottom: none;
+  padding: 1.2rem;
+}
+
+#confirmModal .modal-body {
+  padding: 1.5rem;
+}
+
+#confirmModal .modal-footer {
+  border-top: none;
+  padding: 0 1.5rem 1.5rem;
+}
+
+#confirmModal .btn {
+  min-width: 120px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+#confirmModal #confirmBtn {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+#confirmModal #confirmBtn:hover {
+  background-color: #bb2d3b;
+  border-color: #bb2d3b;
+}
+
+#confirmMessage {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
 /* Анимация для иконки отчетов */
 .report-icon {
   display: inline-block;
