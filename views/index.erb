@@ -1,0 +1,50 @@
+<!-- Выбор даты -->
+<form action="/" method="get">
+  <input type="date" name="date" value="<%= @target_date %>">
+  <button type="submit">Показать</button>
+</form>
+
+<!-- Сетка коек -->
+<div class="beds-grid">
+  <% @beds.each do |bed| %>
+    <div class="bed <%= 'occupied' if bed.occupied %>"
+         data-date="<%= bed.date %>"
+         data-bed-index="<%= bed.bed_index %>">
+      
+      <div>Койка #<%= bed.bed_index %></div>
+      
+      <% if bed.occupied %>
+        <div><%= bed.patient_name %></div>
+        <button class="toggle-btn">Освободить</button>
+      <% else %>
+        <input type="text" class="patient-input" placeholder="Имя пациентки">
+        <button class="toggle-btn">Занять</button>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Скрипт для AJAX -->
+<script>
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const bedEl = e.target.closest('.bed');
+      const date = bedEl.dataset.date;
+      const bedIndex = bedEl.dataset.bedIndex;
+      const patientInput = bedEl.querySelector('.patient-input');
+      const patientName = patientInput ? patientInput.value : '';
+      
+      const formData = new FormData();
+      formData.append('date', date);
+      formData.append('bed_index', bedIndex);
+      formData.append('patient_name', patientName);
+      
+      await fetch('/occupy', {
+        method: 'POST',
+        body: formData
+      });
+      
+      window.location.reload();
+    });
+  });
+</script>
