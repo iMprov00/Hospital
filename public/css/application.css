@@ -34,3 +34,40 @@
   border-color: #ff6b6b;
 }
 
+/* Анимация для иконки отчетов */
+.report-icon {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.report-icon:hover {
+  transform: translateY(-2px) scale(1.1);
+  color: var(--main-color-dark) !important;
+}
+
+.report-icon:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Анимация для логотипа */
+.logo-link {
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+  transform: translateY(-2px);
+}
+
+.logo-link:active {
+  transform: translateY(1px);
+}
+
+.logo-img {
+  height: 28px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover .logo-img {
+  transform: rotate(-5deg) scale(1.1);
+}

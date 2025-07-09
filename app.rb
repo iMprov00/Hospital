@@ -49,6 +49,10 @@ get '/occupied_dates' do
   occupied_dates.to_json
 end
 
+get '/reports' do
+  erb :reports  # Это будет рендерить views/reports.erb
+end
+
 helpers do    # Блок вспомогательных методов
   def load_or_initialize_beds(date)    # Метод загрузки или инициализации коек
     beds = BedDay.where(date: date).index_by(&:bed_index)  # Получение всех коек за дату и индексация
