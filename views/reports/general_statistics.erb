@@ -1,0 +1,65 @@
+<!-- Статистические карточки -->
+<div class="row mb-4">
+  <div class="col-md-3">
+    <div class="card stat-card h-100">
+      <div class="card-body text-center">
+        <h6 class="card-subtitle mb-2 text-muted">Всего дней</h6>
+        <h3 class="card-title"><%= @report_data[:total_days] %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card h-100">
+      <div class="card-body text-center">
+        <h6 class="card-subtitle mb-2 text-muted">Средняя заполняемость</h6>
+        <h3 class="card-title"><%= @report_data[:average_occupied] %> / 18</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card h-100">
+      <div class="card-body text-center">
+        <h6 class="card-subtitle mb-2 text-muted">Всего занято</h6>
+        <h3 class="card-title"><%= @report_data[:total_occupied] %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card stat-card h-100">
+      <div class="card-body text-center">
+        <h6 class="card-subtitle mb-2 text-muted">Всего свободно</h6>
+        <h3 class="card-title"><%= @report_data[:total_free] %></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Детализация по дням -->
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Детальная статистика по дням</h5>
+    
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>Дата</th>
+            <th class="text-end">Занято коек</th>
+            <th class="text-end">Свободно коек</th>
+            <th class="text-end">Заполняемость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @report_data[:stats].each do |day| %>
+            <tr>
+              <td><%= day[:date].strftime('%d.%m.%Y') %></td>
+              <td class="text-end"><%= day[:occupied] %></td>
+              <td class="text-end"><%= day[:free] %></td>
+              <td class="text-end"><%= day[:occupancy_rate] %>%</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ require 'rubygems'          # Подключение RubyGems для управ�
 require 'sinatra'           # Подключение фреймворка Sinatra
 require 'sinatra/reloader'  # Подключение модуля перезагрузки для разработки
 require 'sinatra/activerecord'  # Подключение ActiveRecord для работы с БД
+require_relative 'reports/general_statistics'
 
 require_relative 'models/bed_day'  # Подключение модели BedDay
 
@@ -50,7 +51,22 @@ get '/occupied_dates' do
 end
 
 get '/reports' do
-  erb :reports  # Это будет рендерить views/reports.erb
+  @reports = [
+    { name: "Общая статистика", path: "/reports/general" },
+    # Здесь будут другие отчеты
+  ]
+  @report_title = "Доступные отчеты" # Добавляем заголовок
+  erb :'reports/index'
+end
+
+get '/reports/general' do
+  date_from = params[:date_from] ? Date.parse(params[:date_from]) : Date.today - 7
+  date_to = params[:date_to] ? Date.parse(params[:date_to]) : Date.today
+  
+  @report_data = Reports::GeneralStatistics.generate(date_from, date_to)
+  @report_title = @report_data[:title]
+  
+  erb :'reports/general_statistics', layout: :'reports/layout'
 end
 
 helpers do    # Блок вспомогательных методов
