@@ -1,24 +1,21 @@
 <!-- index.erb -->
-<div class="row">    <!-- Основной ряд -->
-  <div class="card mb-4 shadow-sm">    <!-- Карточка с формой -->
-    <div class="card-body">    <!-- Тело карточки -->
-      <form id="date-form" class="row g-3 align-items-center">    <!-- Форма выбора даты -->
-        <div class="col-md-8">    <!-- Колонка для поля ввода --> <!-- Поле выбора даты --> <!-- Стиль Bootstrap -->  <!-- Имя параметра -->  <!-- Текущее значение -->
-          <input type="date"     
-                 class="form-control"     
-                 name="date"    
-                 value="<%= @target_date %>"   
-                 id="date-picker">    <!-- ID для JS -->
-        </div>
-        <div class="col-md-4">    <!-- Колонка для кнопки -->
-          <button type="submit" class="btn btn-custom w-100">    <!-- Кнопка отправки -->
-            <i class="bi bi-calendar-check"></i> Показать    <!-- Иконка и текст -->
-          </button>
-        </div>
-      </form>
+<div class="row justify-content-center mb-4">    <!-- Ряд с центрированием -->
+  <div class="col-md-5">    <!-- Колонка средней ширины -->
+    <div class="card shadow-sm">    <!-- Карточка без лишних отступов -->
+      <div class="card-body text-center">    <!-- Центрированное содержимое -->
+        <label for="date-picker" class="form-label mb-2"><h2>Дата госпитализации:</h2></label>    <!-- Подпись поля -->
+        <form id="date-form" class="d-inline-block">  <!-- Форма как inline-блок -->
+          <input type="date" 
+                 class="form-control fw-bold fs-5 py-2" 
+                 name="date" 
+                 value="<%= @target_date %>"
+                 id="date-picker"
+                 style="width: auto; display: inline-block; min-width: 180px;">  <!-- Автоматическая ширина -->
+        </form>
+      </div>
     </div>
   </div>
-
+</div>
   <!-- Сетка коек -->
   <div class="row row-cols-2 row-cols-md-4 g-4">    <!-- Сетка карточек коек -->
     <% @beds.each do |bed| %>    <!-- Цикл по всем койкам -->
