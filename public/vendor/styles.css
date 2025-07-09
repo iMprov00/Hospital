@@ -30,3 +30,19 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.bed-card:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .bed-card {
+    margin-bottom: 15px;
+  }

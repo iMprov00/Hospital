@@ -1,50 +1,56 @@
-<!-- Выбор даты -->
-<form action="/" method="get">
-  <input type="date" name="date" value="<%= @target_date %>">
-  <button type="submit">Показать</button>
-</form>
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <!-- Форма выбора даты -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <form class="row g-3 align-items-center">
+          <div class="col-md-8">
+            <input type="date" class="form-control" name="date" value="<%= @target_date %>">
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-custom w-100">
+              <i class="bi bi-calendar-check"></i> Показать
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-<!-- Сетка коек -->
-<div class="beds-grid">
-  <% @beds.each do |bed| %>
-    <div class="bed <%= 'occupied' if bed.occupied %>"
-         data-date="<%= bed.date %>"
-         data-bed-index="<%= bed.bed_index %>">
-      
-      <div>Койка #<%= bed.bed_index %></div>
-      
-      <% if bed.occupied %>
-        <div><%= bed.patient_name %></div>
-        <button class="toggle-btn">Освободить</button>
-      <% else %>
-        <input type="text" class="patient-input" placeholder="Имя пациентки">
-        <button class="toggle-btn">Занять</button>
+    <!-- Сетка коек -->
+    <div class="row row-cols-2 row-cols-md-4 g-4">
+      <% @beds.each do |bed| %>
+        <div class="col">
+          <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Койка #<%= bed.bed_index %></h5>
+              
+              <% if bed.occupied %>
+                <div class="mb-3">
+                  <span class="badge bg-danger">Занято</span>
+                  <p class="mt-2 fw-bold"><%= bed.patient_name %></p>
+                </div>
+                <button class="btn btn-sm btn-outline-danger toggle-btn w-100">
+                  Освободить
+                </button>
+              <% else %>
+                <div class="mb-3">
+                  <span class="badge bg-success">Свободно</span>
+                  <input type="text" class="form-control mt-2 patient-input" 
+                         placeholder="ФИО пациентки">
+                </div>
+                <button class="btn btn-sm btn-custom toggle-btn w-100">
+                  Забронировать
+                </button>
+              <% end %>
+            </div>
+            <div class="card-footer bg-transparent">
+              <small class="text-muted">
+                <%= bed.date.strftime('%d.%m.%Y') %>
+              </small>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
-
-<!-- Скрипт для AJAX -->
-<script>
-  document.querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      const bedEl = e.target.closest('.bed');
-      const date = bedEl.dataset.date;
-      const bedIndex = bedEl.dataset.bedIndex;
-      const patientInput = bedEl.querySelector('.patient-input');
-      const patientName = patientInput ? patientInput.value : '';
-      
-      const formData = new FormData();
-      formData.append('date', date);
-      formData.append('bed_index', bedIndex);
-      formData.append('patient_name', patientName);
-      
-      await fetch('/occupy', {
-        method: 'POST',
-        body: formData
-      });
-      
-      window.location.reload();
-    });
-  });
-</script>
