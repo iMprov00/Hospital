@@ -1,26 +1,31 @@
-// public/js/application.js
+// Главная функция инициализации
 document.addEventListener('DOMContentLoaded', function() {
-  // Обработчик для кнопок койки
+  // Инициализация обработчиков для кнопок коек
+  initBedButtons();
+  
+  // Инициализация Flatpickr с подсветкой занятых дат
+  initDatePicker();
+});
+
+function initBedButtons() {
   document.querySelectorAll('.toggle-btn').forEach(btn => {
     btn.addEventListener('click', handleBedToggle);
   });
-
-  // Обработчик изменения даты
-  const datePicker = document.getElementById('date-picker');
-  if (datePicker) {
-    datePicker.addEventListener('change', function() {
-      document.getElementById('date-form').submit();
-    });
-  }
-});
+}
 
 async function handleBedToggle(e) {
   e.preventDefault();
   
   const bedCard = e.target.closest('.bed-card');
-  const date = bedCard.dataset.date; // Получаем дату из data-атрибута
+  const date = bedCard.dataset.date;
   const bedIndex = bedCard.querySelector('.card-title').textContent.match(/\d+/)[0];
   const isOccupied = bedCard.classList.contains('occupied-card');
+  
+  // Показываем индикатор загрузки
+  const btn = e.target;
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+  btn.disabled = true;
   
   const formData = new FormData();
   formData.append('date', date);
@@ -32,6 +37,15 @@ async function handleBedToggle(e) {
   } else {
     const patientName = bedCard.querySelector('.patient-input').value || '';
     const diagnosis = bedCard.querySelector('.diagnosis-input').value || '';
+    
+    // Проверка обязательных полей
+    if (!patientName.trim()) {
+      alert('Пожалуйста, введите имя пациента');
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      return;
+    }
+    
     formData.append('patient_name', patientName);
     formData.append('diagnosis', diagnosis);
   }
@@ -48,5 +62,43 @@ async function handleBedToggle(e) {
   } catch (error) {
     console.error('Ошибка:', error);
     alert('Произошла ошибка при сохранении данных');
+  } finally {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
   }
+}
+
+// Инициализация Flatpickr с подсветкой занятых дат
+async function initDatePicker() {
+  const datePicker = document.getElementById('date-picker');
+  if (!datePicker) return;
+
+  // Получаем занятые даты с сервера
+  let occupiedDates = [];
+  try {
+    const response = await fetch('/occupied_dates');
+    occupiedDates = await response.json();
+  } catch (error) {
+    console.error('Ошибка при загрузке занятых дат:', error);
+  }
+
+  // Инициализация Flatpickr
+  const flatpickrInstance = flatpickr(datePicker, {
+    locale: "ru",
+    dateFormat: "Y-m-d",
+    defaultDate: datePicker.value,
+    onChange: function(selectedDates, dateStr, instance) {
+      // При изменении даты отправляем форму
+      document.getElementById('date-form').submit();
+    },
+    onDayCreate: function(dObj, dStr, fp, dayElem) {
+      // Подсвечиваем занятые даты
+      const date = flatpickr.formatDate(dayElem.dateObj, "Y-m-d");
+      if (occupiedDates.includes(date)) {
+        dayElem.style.backgroundColor = "#ffdddd";
+        dayElem.style.color = "#cc0000";
+        dayElem.style.fontWeight = "bold";
+      }
+    }
+  });
 }

@@ -4,13 +4,14 @@
     <div class="card shadow-sm">    <!-- Карточка без лишних отступов -->
       <div class="card-body text-center">    <!-- Центрированное содержимое -->
         <label for="date-picker" class="form-label mb-2"><h2>Дата госпитализации:</h2></label>    <!-- Подпись поля -->
-        <form id="date-form" class="d-inline-block">  <!-- Форма как inline-блок -->
-          <input type="date" 
+        <form id="date-form" class="d-inline-block">
+          <input type="text" 
                  class="form-control fw-bold fs-5 py-2" 
                  name="date" 
                  value="<%= @target_date %>"
                  id="date-picker"
-                 style="width: auto; display: inline-block; min-width: 180px;">  <!-- Автоматическая ширина -->
+                 placeholder="Выберите дату"
+                 data-input>
         </form>
       </div>
     </div>
