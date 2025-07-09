@@ -73,7 +73,7 @@
     // Ваш JS-код
   </script>
 
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.toggle-btn').forEach(btn => {
     btn.addEventListener('click', async (e) => {
@@ -82,13 +82,25 @@ document.addEventListener('DOMContentLoaded', function() {
       const bedCard = e.target.closest('.bed-card');
       const date = '<%= @target_date %>';
       const bedIndex = bedCard.querySelector('.card-title').textContent.match(/\d+/)[0];
-      const patientInput = bedCard.querySelector('.patient-input');
-      const patientName = patientInput ? patientInput.value : '';
+      
+      // Определяем тип действия (освободить или забронировать)
+      const isOccupied = bedCard.classList.contains('occupied-card');
       
       const formData = new FormData();
       formData.append('date', date);
       formData.append('bed_index', bedIndex);
-      formData.append('patient_name', patientName);
+      
+      if (isOccupied) {
+        // Для кнопки "Освободить"
+        formData.append('patient_name', '');
+        formData.append('diagnosis', '');
+      } else {
+        // Для кнопки "Забронировать"
+        const patientName = bedCard.querySelector('.patient-input').value || '';
+        const diagnosis = bedCard.querySelector('.diagnosis-input').value || '';
+        formData.append('patient_name', patientName);
+        formData.append('diagnosis', diagnosis);
+      }
       
       try {
         const response = await fetch('/occupy', {
