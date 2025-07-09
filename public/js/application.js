@@ -21,6 +21,14 @@ async function handleBedToggle(e) {
   const bedIndex = bedCard.querySelector('.card-title').textContent.match(/\d+/)[0];
   const isOccupied = bedCard.classList.contains('occupied-card');
   
+  // Добавляем подтверждение для освобождения койки
+  if (isOccupied) {
+    const confirmRelease = confirm("Освободить койку?");
+    if (!confirmRelease) {
+      return; // Отмена действия
+    }
+  }
+  
   // Показываем индикатор загрузки
   const btn = e.target;
   const originalText = btn.innerHTML;
@@ -38,7 +46,6 @@ async function handleBedToggle(e) {
     const patientName = bedCard.querySelector('.patient-input').value || '';
     const diagnosis = bedCard.querySelector('.diagnosis-input').value || '';
     
-    // Проверка обязательных полей
     if (!patientName.trim()) {
       alert('Пожалуйста, введите имя пациента');
       btn.innerHTML = originalText;
