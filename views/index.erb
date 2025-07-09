@@ -24,48 +24,35 @@
   <div class="row row-cols-2 row-cols-md-4 g-4">    <!-- Сетка карточек коек -->
     <% @beds.each do |bed| %>    <!-- Цикл по всем койкам -->
       <div class="col">    <!-- Колонка для карточки -->
-       <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" data-date="<%= bed.date %>">    <!-- Карточка койки -->
-          <div class="card-body text-center">    <!-- Тело карточки -->
-            <h5 class="card-title">Койка #<%= bed.bed_index %></h5>    <!-- Номер койки -->
-            
-            <% if bed.occupied %>    <!-- Если койка занята -->
-              <div class="mb-3">    <!-- Блок с информацией -->
-                <span class="badge bg-danger">Занято</span>    <!-- Бейдж статуса -->
-                <p class="mt-2 fw-bold"><%= bed.patient_name %></p>    <!-- Имя пациента -->
-                <!-- Вставка диагноза для занятой койки -->
-                <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>    <!-- Если есть диагноз -->
-                  <p class="text-muted small">    <!-- Текст диагноза -->
-                    Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %>    <!-- Форматированный диагноз -->
-                  </p>
-                <% end %>
-              </div>
-              <button class="btn btn-sm btn-outline-danger toggle-btn w-100">    <!-- Кнопка освобождения -->
-                Освободить
-              </button>
-            <% else %>    <!-- Если койка свободна -->
-              <div class="mb-3">    <!-- Блок с полями ввода -->
-                <span class="badge bg-success">Свободно</span>    <!-- Бейдж статуса --> <!-- Поле для имени -->
-                <input type="text" class="form-control mt-2 patient-input"     
-                       placeholder="ФИО пациентки">
-              </div>
-              <!-- Вставка диагноза -->
-              <div class="mb-3">    <!-- Блок с полем диагноза -->  <!-- Поле для диагноза -->
-                <input type="text"    
-                       class="form-control diagnosis-input" 
-                       placeholder="Диагноз" 
-                       value="<%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ').presence %>">    <!-- Значение диагноза -->
-              </div>
-              <button class="btn btn-sm btn-custom toggle-btn w-100">    <!-- Кнопка бронирования -->
-                Забронировать
-              </button>
-            <% end %>
-          </div>
-          <div class="card-footer bg-transparent">    <!-- Подвал карточки -->
-            <small class="text-muted">    <!-- Дата -->
-              <%= bed.date.strftime('%d.%m.%Y') %>    <!-- Форматированная дата -->
-            </small>
-          </div>
-        </div>
+<div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
+  <div class="card-body text-center p-2">
+    <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
+    
+    <% if bed.occupied %>
+      <div class="mb-1">
+        <span class="badge bg-danger">Занято</span>
+        <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
+        <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
+          <p class="text-muted small mb-1">Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></p>
+        <% end %>
+      </div>
+      <button class="btn btn-sm btn-outline-danger toggle-btn w-100 py-1">Освободить</button>
+    <% else %>
+      <div class="mb-1">
+        <span class="badge bg-success">Свободно</span>
+        <input type="text" name="patient_name" class="form-control form-control-sm mt-1 patient-input" placeholder="ФИО">
+      </div>
+      <div class="mb-1">
+        <input type="text" name="diagnosis" class="form-control form-control-sm diagnosis-input" placeholder="Диагноз" 
+               value="<%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ').presence %>">
+      </div>
+      <button class="btn btn-sm btn-custom toggle-btn w-100 py-1">Забронировать</button>
+    <% end %>
+  </div>
+  <div class="card-footer bg-transparent py-1">
+    <small class="text-muted"><%= bed.date.strftime('%d.%m.%Y') %></small>
+  </div>
+</div>
       </div>
     <% end %>
   </div>
