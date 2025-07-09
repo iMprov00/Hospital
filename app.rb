@@ -23,6 +23,8 @@ post '/occupy' do
   else
     bed.update!(
       patient_name: params[:patient_name],
+      diagnosis_code: params[:diagnosis_code],
+      diagnosis_name: params[:diagnosis_name],
       occupied: !params[:patient_name].empty?
     )
   end
@@ -34,7 +36,7 @@ helpers do
   def load_or_initialize_beds(date)
     beds = BedDay.where(date: date).index_by(&:bed_index)
     
-    (1..20).map do |idx|
+    (1..18).map do |idx| # Изменили на 18
       beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false)
     end
   end

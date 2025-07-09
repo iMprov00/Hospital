@@ -40,6 +40,9 @@
                   <input type="text" class="form-control mt-2 patient-input" 
                          placeholder="ФИО пациентки">
                 </div>
+                <div class="mb-3">
+				  <input type="text" class="form-control diagnosis-input" placeholder="Код или название диагноза" value="<%= bed.diagnosis_code %> <%= bed.diagnosis_name %>">
+				</div>
                 <button class="btn btn-sm btn-custom toggle-btn w-100">
                   Забронировать
                 </button>
