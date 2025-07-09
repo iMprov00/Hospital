@@ -1,61 +1,70 @@
 <div class="row">
-<div class="card mb-4 shadow-sm">
-  <div class="card-body">
-    <form id="date-form" class="row g-3 align-items-center">
-      <div class="col-md-8">
-        <input type="date" 
-               class="form-control" 
-               name="date" 
-               value="<%= @target_date %>"
-               id="date-picker">
-      </div>
-      <div class="col-md-4">
-        <button type="submit" class="btn btn-custom w-100">
-          <i class="bi bi-calendar-check"></i> Показать
-        </button>
-      </div>
-    </form>
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <form id="date-form" class="row g-3 align-items-center">
+        <div class="col-md-8">
+          <input type="date" 
+                 class="form-control" 
+                 name="date" 
+                 value="<%= @target_date %>"
+                 id="date-picker">
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-custom w-100">
+            <i class="bi bi-calendar-check"></i> Показать
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
-    <!-- Сетка коек -->
-    <div class="row row-cols-2 row-cols-md-4 g-4">
-      <% @beds.each do |bed| %>
-        <div class="col">
-          <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100">
-            <div class="card-body text-center">
-              <h5 class="card-title">Койка #<%= bed.bed_index %></h5>
-              
-              <% if bed.occupied %>
-                <div class="mb-3">
-                  <span class="badge bg-danger">Занято</span>
-                  <p class="mt-2 fw-bold"><%= bed.patient_name %></p>
-                </div>
-                <button class="btn btn-sm btn-outline-danger toggle-btn w-100">
-                  Освободить
-                </button>
-              <% else %>
-                <div class="mb-3">
-                  <span class="badge bg-success">Свободно</span>
-                  <input type="text" class="form-control mt-2 patient-input" 
-                         placeholder="ФИО пациентки">
-                </div>
-                <div class="mb-3">
-				  <input type="text" class="form-control diagnosis-input" placeholder="Код или название диагноза" value="<%= bed.diagnosis_code %> <%= bed.diagnosis_name %>">
-				</div>
-                <button class="btn btn-sm btn-custom toggle-btn w-100">
-                  Забронировать
-                </button>
-              <% end %>
-            </div>
-            <div class="card-footer bg-transparent">
-              <small class="text-muted">
-                <%= bed.date.strftime('%d.%m.%Y') %>
-              </small>
-            </div>
+  <!-- Сетка коек -->
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    <% @beds.each do |bed| %>
+      <div class="col">
+        <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">Койка #<%= bed.bed_index %></h5>
+            
+            <% if bed.occupied %>
+              <div class="mb-3">
+                <span class="badge bg-danger">Занято</span>
+                <p class="mt-2 fw-bold"><%= bed.patient_name %></p>
+                <!-- Вставка диагноза для занятой койки -->
+                <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
+                  <p class="text-muted small">
+                    Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %>
+                  </p>
+                <% end %>
+              </div>
+              <button class="btn btn-sm btn-outline-danger toggle-btn w-100">
+                Освободить
+              </button>
+            <% else %>
+              <div class="mb-3">
+                <span class="badge bg-success">Свободно</span>
+                <input type="text" class="form-control mt-2 patient-input" 
+                       placeholder="ФИО пациентки">
+              </div>
+              <!-- Вставка диагноза -->
+              <div class="mb-3">
+                <input type="text" 
+                       class="form-control diagnosis-input" 
+                       placeholder="Диагноз" 
+                       value="<%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ').presence %>">
+              </div>
+              <button class="btn btn-sm btn-custom toggle-btn w-100">
+                Забронировать
+              </button>
+            <% end %>
+          </div>
+          <div class="card-footer bg-transparent">
+            <small class="text-muted">
+              <%= bed.date.strftime('%d.%m.%Y') %>
+            </small>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

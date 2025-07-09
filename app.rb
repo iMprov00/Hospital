@@ -21,11 +21,14 @@ post '/occupy' do
   if params[:patient_name].empty?
     bed.destroy if bed.persisted?
   else
+    # Разбиваем диагноз на код и название (если введено через пробел)
+    diagnosis_parts = params[:diagnosis].to_s.split(' ', 2)
+    
     bed.update!(
       patient_name: params[:patient_name],
-      diagnosis_code: params[:diagnosis_code],
-      diagnosis_name: params[:diagnosis_name],
-      occupied: !params[:patient_name].empty?
+      diagnosis_code: diagnosis_parts[0],
+      diagnosis_name: diagnosis_parts[1] || '',
+      occupied: true
     )
   end
   
