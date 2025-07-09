@@ -137,6 +137,13 @@
   color: var(--main-color-dark) !important;
 }
 
+/* Добавьте в application.css */
+.logo-link {
+  font-family: 'Montserrat', sans-serif; /* Или другой выбранный шрифт */
+  font-weight: 600; /* Полужирное начертание */
+  letter-spacing: 0.5px; /* Небольшой межбуквенный интервал */
+}
+
 .report-icon:active {
   transform: translateY(1px) scale(0.98);
 }
