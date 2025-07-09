@@ -1,17 +1,18 @@
 <!-- index.erb -->
 <div class="row justify-content-center mb-4">    <!-- Ряд с центрированием -->
-  <div class="col-md-5">    <!-- Колонка средней ширины -->
+  <div class="col-md-4">    <!-- Колонка средней ширины -->
     <div class="card shadow-sm">    <!-- Карточка без лишних отступов -->
       <div class="card-body text-center">    <!-- Центрированное содержимое -->
-        <label for="date-picker" class="form-label mb-2"><h2>Дата госпитализации:</h2></label>    <!-- Подпись поля -->
+        <label for="date-picker" class="form-label mb-2"><h2>Дата госпитализации</h2></label>    <!-- Подпись поля -->
         <form id="date-form" class="d-inline-block">
           <input type="text" 
-                 class="form-control fw-bold fs-5 py-2" 
-                 name="date" 
-                 value="<%= @target_date %>"
+                 class="form-control fw-bold fs-5 py-2 text-center" 
+                  name="date" 
+                 value="<%= @target_date.strftime('%d.%m.%Y') %>" 
                  id="date-picker"
-                 placeholder="Выберите дату"
-                 data-input>
+                 placeholder="дд.мм.гггг"
+                 data-input
+                 style="max-width: 150px;">
         </form>
       </div>
     </div>

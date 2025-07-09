@@ -67,13 +67,10 @@ async function handleBedToggle(e) {
     btn.disabled = false;
   }
 }
-
-// Инициализация Flatpickr с подсветкой занятых дат
 async function initDatePicker() {
   const datePicker = document.getElementById('date-picker');
   if (!datePicker) return;
 
-  // Получаем занятые даты с сервера
   let occupiedDates = [];
   try {
     const response = await fetch('/occupied_dates');
@@ -82,17 +79,15 @@ async function initDatePicker() {
     console.error('Ошибка при загрузке занятых дат:', error);
   }
 
-  // Инициализация Flatpickr
   const flatpickrInstance = flatpickr(datePicker, {
     locale: "ru",
-    dateFormat: "Y-m-d",
+    dateFormat: "d.m.Y", // Новый формат дд.мм.гггг
+    allowInput: true,
     defaultDate: datePicker.value,
     onChange: function(selectedDates, dateStr, instance) {
-      // При изменении даты отправляем форму
       document.getElementById('date-form').submit();
     },
     onDayCreate: function(dObj, dStr, fp, dayElem) {
-      // Подсвечиваем занятые даты
       const date = flatpickr.formatDate(dayElem.dateObj, "Y-m-d");
       if (occupiedDates.includes(date)) {
         dayElem.style.backgroundColor = "#ffdddd";
