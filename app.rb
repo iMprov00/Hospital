@@ -53,6 +53,52 @@ get '/reports' do
   erb :reports  # Это будет рендерить views/reports.erb
 end
 
+get '/reports/general_stats' do
+  content_type :json
+  
+  start_date = Date.parse(params[:start_date]) if params[:start_date]
+  end_date = Date.parse(params[:end_date]) if params[:end_date]
+  
+  # Если даты не указаны, берем последние 30 дней
+  end_date ||= Date.today
+  start_date ||= end_date - 30.days
+  
+  # Получаем все даты в диапазоне (включая пустые)
+  all_dates = (start_date..end_date).to_a
+  
+  # Получаем данные из БД
+  beds_data = BedDay.where(date: start_date..end_date)
+                   .group(:date)
+                   .count
+  
+  # Формируем данные для таблицы
+  table_data = all_dates.map do |date|
+    occupied = beds_data[date] || 0
+    percentage = (occupied.to_f / 18 * 100).round(1)
+    
+    {
+      date: date.strftime('%d.%m.%Y'),
+      occupied: occupied,
+      percentage: percentage
+    }
+  end
+  
+  # Общая статистика
+  total_days = all_dates.size
+  total_occupied = beds_data.values.sum
+  total_possible = total_days * 18
+  avg_occupancy = (total_occupied.to_f / total_possible * 100).round(1)
+  
+  {
+    stats: {
+      total_occupied: total_occupied,
+      total_free: total_possible - total_occupied,
+      avg_occupancy: avg_occupancy
+    },
+    table_data: table_data
+  }.to_json
+end
+
 helpers do    # Блок вспомогательных методов
   def load_or_initialize_beds(date)    # Метод загрузки или инициализации коек
     beds = BedDay.where(date: date).index_by(&:bed_index)  # Получение всех коек за дату и индексация
