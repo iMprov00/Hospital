@@ -160,6 +160,48 @@ get '/reports/export_excel' do
   p.to_stream.read
 end
 
+# Маршрут для управления бэкапами
+get '/admin/backups' do
+
+  
+  @daily_backups = Dir.glob('db/backups/hospital_backup_*.db').sort.reverse
+  @monthly_backups = Dir.glob('db/backups/hospital_monthly_*.db').sort.reverse
+  
+  erb :backups
+end
+
+# Маршрут для скачивания бэкапа
+get '/admin/download_backup' do
+
+  
+  file = params[:file]
+  path = File.join('db/backups', file)
+  
+  if File.exist?(path)
+    send_file path, filename: file, type: 'Application/octet-stream'
+  else
+    status 404
+    "Backup not found"
+  end
+end
+
+# Маршрут для ручного создания бэкапа
+post '/admin/create_backup' do
+
+  
+  # Запускаем скрипт бэкапа
+  result = `ruby tasks/backup.rb 2>&1`
+  
+  content_type :text
+  "Backup created successfully!\n#{result}"
+end
+
+
+
+before '/admin/*' do
+  protected!
+end
+
 helpers do    # Блок вспомогательных методов
   def load_or_initialize_beds(date)    # Метод загрузки или инициализации коек
     beds = BedDay.where(date: date).index_by(&:bed_index)  # Получение всех коек за дату и индексация
@@ -168,4 +210,16 @@ helpers do    # Блок вспомогательных методов
       beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false)  # Существующая койка или новая
     end
   end
+
+  def protected!
+    return if authorized?
+    headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
+    halt 401, "Not authorized\n"
+  end
+
+  def authorized?
+    @auth ||= Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', '123']
+  end
+
 end

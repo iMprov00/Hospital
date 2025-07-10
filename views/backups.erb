@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0"><i class="bi bi-database me-2"></i>Управление бэкапами</h4>
+    </div>
+    <div class="card-body">
+      <div class="d-flex justify-content-between mb-4">
+        <h5>Резервные копии базы данных</h5>
+        <form action="/admin/create_backup" method="POST">
+          <button type="submit" class="btn btn-success">
+            <i class="bi bi-plus-circle me-1"></i>Создать бэкап сейчас
+          </button>
+        </form>
+      </div>
+      
+      <div class="mb-5">
+        <h6><i class="bi bi-calendar-day me-2"></i>Ежедневные бэкапы</h6>
+        <div class="list-group">
+          <% @daily_backups.each do |backup| %>
+            <% file = File.basename(backup) %>
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <i class="bi bi-file-earmark-zip me-2"></i>
+                <%= file %>
+                <small class="text-muted ms-2">
+                  <%= File.size(backup).to_f / (1024 * 1024) %> MB
+                </small>
+              </div>
+              <a href="/admin/download_backup?file=<%= file %>" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-download me-1"></i>Скачать
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div>
+        <h6><i class="bi bi-calendar-month me-2"></i>Месячные архивы</h6>
+        <div class="list-group">
+          <% @monthly_backups.each do |backup| %>
+            <% file = File.basename(backup) %>
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <i class="bi bi-archive me-2"></i>
+                <%= file %>
+                <small class="text-muted ms-2">
+                  <%= File.size(backup).to_f / (1024 * 1024) %> MB
+                </small>
+              </div>
+              <a href="/admin/download_backup?file=<%= file %>" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-download me-1"></i>Скачать
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

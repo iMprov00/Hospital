@@ -77,6 +77,19 @@
   transform: translateY(0);
 }
 
+/* Стиль для формы входа */
+.card-header {
+  background-color: var(--main-color);
+}
+
+/* Отключение автозаполнения */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 #confirmMessage {
   color: var(--main-color-dark);
   font-weight: 500;
