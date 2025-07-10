@@ -9,7 +9,34 @@
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
-
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #reportContent, #reportContent * {
+    visibility: visible;
+  }
+  #reportContent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    border: none;
+  }
+  .stat-card {
+    color: black !important;
+    break-inside: avoid;
+  }
+  table {
+    break-inside: avoid;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
 #confirmModal .modal-header {
   padding: 1.2rem 1.5rem;
 }

@@ -3,6 +3,7 @@ require 'rubygems'          # Подключение RubyGems для управ�
 require 'sinatra'           # Подключение фреймворка Sinatra
 require 'sinatra/reloader'  # Подключение модуля перезагрузки для разработки
 require 'sinatra/activerecord'  # Подключение ActiveRecord для работы с БД
+# require 'axlsx'
 
 require_relative 'models/bed_day'  # Подключение модели BedDay
 
@@ -97,6 +98,66 @@ get '/reports/general_stats' do
     },
     table_data: table_data
   }.to_json
+end
+
+get '/reports/export_excel' do
+  content_type 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  headers['Content-Disposition'] = 'attachment; filename=hospital_report.xlsx'
+  
+  start_date = Date.parse(params[:start_date]) if params[:start_date]
+  end_date = Date.parse(params[:end_date]) if params[:end_date]
+  
+  end_date ||= Date.today
+  start_date ||= end_date - 30.days
+  
+  all_dates = (start_date..end_date).to_a
+  beds_data = BedDay.where(date: start_date..end_date)
+                   .group(:date)
+                   .count
+  
+  # Создаем Excel файл
+  p = Axlsx::Package.new
+  wb = p.workbook
+  
+  # Добавляем стили
+  styles = wb.styles
+  header_style = styles.add_style(b: true, bg_color: '54C654', fg_color: 'FFFFFF', alignment: { horizontal: :center })
+  percent_style = styles.add_style(format_code: '0.0%')
+  
+  # Лист с общей статистикой
+  wb.add_worksheet(name: 'Общая статистика') do |sheet|
+    sheet.add_row ['Отчет по занятости коек', '', ''], style: header_style
+    sheet.add_row ["Период: с #{start_date.strftime('%d.%m.%Y')} по #{end_date.strftime('%d.%m.%Y')}", '', '']
+    sheet.add_row []
+    
+    total_days = all_dates.size
+    total_occupied = beds_data.values.sum
+    total_possible = total_days * 18
+    avg_occupancy = (total_occupied.to_f / total_possible)
+    
+    sheet.add_row ['Метрика', 'Значение', ''], style: header_style
+    sheet.add_row ['Всего занято коек', total_occupied]
+    sheet.add_row ['Всего свободно коек', total_possible - total_occupied]
+    sheet.add_row ['Средняя занятость', avg_occupancy, percent_style]
+  end
+  
+  # Лист с ежедневной статистикой
+  wb.add_worksheet(name: 'Ежедневная статистика') do |sheet|
+    sheet.add_row ['Дата', 'Занято коек', 'Процент занятости'], style: header_style
+    
+    all_dates.each do |date|
+      occupied = beds_data[date] || 0
+      percentage = occupied.to_f / 18
+      
+      sheet.add_row [
+        date.strftime('%d.%m.%Y'),
+        occupied,
+        percentage
+      ], types: [:string, :integer, :float], style: [nil, nil, percent_style]
+    end
+  end
+  
+  p.to_stream.read
 end
 
 helpers do    # Блок вспомогательных методов

@@ -34,9 +34,17 @@
 
 <!-- Заменим блок reportContent на -->
 <div class="card shadow-sm d-none" id="reportContent">
-  <div class="card-header bg-light">
-    <h5 class="mb-0">Общая статистика <small id="reportPeriod" class="text-muted"></small></h5>
+<div class="card-header bg-light d-flex justify-content-between align-items-center">
+  <h5 class="mb-0">Общая статистика <small id="reportPeriod" class="text-muted"></small></h5>
+  <div>
+    <button class="btn btn-sm btn-outline-secondary me-2" id="printReport">
+      <i class="bi bi-printer me-1"></i>Печать
+    </button>
+<%#     <button class="btn btn-sm btn-success" id="exportExcel">
+      <i class="bi bi-file-earmark-excel me-1"></i>Excel
+    </button> %>
   </div>
+</div>
   <div class="card-body">
     <!-- Статистика -->
     <div class="row mb-4" id="statsCards">
@@ -194,4 +202,80 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 });
+</script>
+<script>
+  // Обработчик печати
+  document.getElementById('printReport').addEventListener('click', function() {
+    const printContent = document.getElementById('reportContent').cloneNode(true);
+    const printWindow = window.open('', '', 'width=800,height=600');
+    
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Отчет по занятости коек</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+          @media print {
+            body { padding: 20px; }
+            .stat-card { color: black !important; break-inside: avoid; }
+            table { break-inside: avoid; }
+            .no-print { display: none !important; }
+          }
+          .print-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="print-header">
+          <h3>Отчет по занятости коек</h3>
+          <h5 id="printPeriod"></h5>
+          <p>Сформировано: ${new Date().toLocaleDateString('ru-RU')}</p>
+        </div>
+        ${printContent.innerHTML}
+      </body>
+      </html>
+    `);
+    
+    // Обновляем период в печатной версии
+    printWindow.document.getElementById('printPeriod').textContent = 
+      document.getElementById('reportPeriod').textContent;
+    
+    // Удаляем кнопки из печатной версии
+    printWindow.document.querySelectorAll('.no-print').forEach(el => el.remove());
+    
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => {
+      printWindow.print();
+      printWindow.close();
+    }, 500);
+  });
+  
+  // Обработчик экспорта в Excel
+  document.getElementById('exportExcel').addEventListener('click', function() {
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    
+    if (!startDate || !endDate) {
+      showAlert('Ошибка', 'Пожалуйста, укажите период для экспорта');
+      return;
+    }
+    
+    const btn = this;
+    const originalHtml = btn.innerHTML;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Выгрузка...';
+    btn.disabled = true;
+    
+    window.location.href = `/reports/export_excel?start_date=${startDate}&end_date=${endDate}`;
+    
+    setTimeout(() => {
+      btn.innerHTML = originalHtml;
+      btn.disabled = false;
+    }, 2000);
+  });
 </script>
