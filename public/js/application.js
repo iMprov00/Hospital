@@ -62,6 +62,20 @@ async function handleBedToggle(e) {
         return;
       }
       
+      // Дополнительная проверка - запрашиваем текущее состояние койки
+      const checkResponse = await fetch(`/check_bed?date=${date}&bed_index=${bedIndex}`);
+      if (!checkResponse.ok) {
+        throw new Error('Ошибка проверки состояния койки');
+      }
+      
+      const bedStatus = await checkResponse.json();
+      if (bedStatus.occupied) {
+        // Койка уже занята, обновляем страницу
+        showAlert('Ошибка', `Койка №${bedIndex} уже занята другим пользователем. Страница будет обновлена.`);
+        window.location.reload();
+        return;
+      }
+      
       formData.append('patient_name', patientName);
       formData.append('diagnosis', diagnosis);
     }
@@ -73,6 +87,11 @@ async function handleBedToggle(e) {
     });
     
     if (response.ok) {
+      window.location.reload();
+    } else if (response.status === 409) {
+      // Конфликт - койка уже занята
+      const error = await response.text();
+      showAlert('Ошибка', error);
       window.location.reload();
     } else {
       throw new Error('Ошибка сервера');

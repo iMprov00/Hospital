@@ -46,7 +46,24 @@
 
   <!-- Основной контент -->
   <div class="container">
+   
+
+           <!-- Блок для flash-сообщений -->
+    <% if flash[:alert] || flash[:notice] %>
+      <div class="row justify-content-center mb-3">
+        <div class="col-md-8">
+          <div class="alert <%= flash[:alert] ? 'alert-danger' : 'alert-info' %> alert-dismissible fade show">
+            <%= flash[:alert] || flash[:notice] %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <%= yield %>
+
+
+
   </div>
 
   <!-- Подвал -->

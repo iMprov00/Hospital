@@ -15,25 +15,35 @@ get '/' do    # Обработчик GET-запроса для главной с
   erb :index    # Рендеринг шаблона index.erb
 end
 
-post '/occupy' do    # Обработчик POST-запроса для изменения статуса койки
-  date = Date.parse(params[:date])    # Парсинг даты из параметров
-  bed = BedDay.find_or_initialize_by(date: date, bed_index: params[:bed_index].to_i)  # Поиск или создание записи о койке
+post '/occupy' do
+  date = Date.parse(params[:date])
+  bed_index = params[:bed_index].to_i
   
-  if params[:patient_name].empty?    # Проверка на пустое имя пациента (освобождение койки)
-    bed.destroy if bed.persisted?    # Удаление записи, если она существует в БД
+  # Проверяем, не занята ли уже койка другим пользователем
+  existing_bed = BedDay.find_by(date: date, bed_index: bed_index)
+  
+  if existing_bed && existing_bed.occupied? && !params[:patient_name].empty?
+    # Если койка уже занята, а пользователь пытается ее занять - возвращаем ошибку
+    halt 409, "Койка №#{bed_index} уже занята другим пациентом. Страница будет обновлена."
+  end
+
+  # Продолжаем стандартную логику
+  bed = BedDay.find_or_initialize_by(date: date, bed_index: bed_index)
+  
+  if params[:patient_name].empty?
+    bed.destroy if bed.persisted?
   else
-    # Разбиваем диагноз на код и название (если введено через пробел)
-    diagnosis_parts = params[:diagnosis].to_s.split(' ', 2)    # Разделение диагноза на код и название
+    diagnosis_parts = params[:diagnosis].to_s.split(' ', 2)
     
-    bed.update!(    # Обновление данных о койке
-      patient_name: params[:patient_name],    # Имя пациента
-      diagnosis_code: diagnosis_parts[0],     # Код диагноза
-      diagnosis_name: diagnosis_parts[1] || '',  # Название диагноза (или пустая строка)
-      occupied: true    # Флаг занятости
+    bed.update!(
+      patient_name: params[:patient_name],
+      diagnosis_code: diagnosis_parts[0],
+      diagnosis_name: diagnosis_parts[1] || '',
+      occupied: true
     )
   end
   
-  redirect "/?date=#{date}"    # Перенаправление на главную с текущей датой
+  redirect "/?date=#{date}"
 end
 
 # Эндпоинт для получения занятых дат
@@ -196,7 +206,20 @@ post '/admin/create_backup' do
   "Backup created successfully!\n#{result}"
 end
 
-
+get '/check_bed' do
+  content_type :json
+  
+  date = Date.parse(params[:date])
+  bed_index = params[:bed_index].to_i
+  
+  bed = BedDay.find_by(date: date, bed_index: bed_index)
+  
+  {
+    occupied: bed&.occupied? || false,
+    patient_name: bed&.patient_name || '',
+    diagnosis: [bed&.diagnosis_code, bed&.diagnosis_name].compact.join(' ')
+  }.to_json
+end
 
 before '/admin/*' do
   protected!
