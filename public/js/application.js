@@ -23,7 +23,6 @@ async function handleBedToggle(e) {
   const originalHtml = btn.innerHTML;
   
   try {
-    // Показываем загрузку сразу
     btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
     btn.disabled = true;
     
@@ -37,7 +36,6 @@ async function handleBedToggle(e) {
     formData.append('bed_index', bedIndex);
     
     if (isOccupied) {
-      // Запрашиваем подтверждение через кастомное модальное окно
       const confirmed = await showCustomConfirm(
         'Подтвердите действие',
         'Вы действительно хотите освободить койку?'
@@ -62,25 +60,10 @@ async function handleBedToggle(e) {
         return;
       }
       
-      // Дополнительная проверка - запрашиваем текущее состояние койки
-      const checkResponse = await fetch(`/check_bed?date=${date}&bed_index=${bedIndex}`);
-      if (!checkResponse.ok) {
-        throw new Error('Ошибка проверки состояния койки');
-      }
-      
-      const bedStatus = await checkResponse.json();
-      if (bedStatus.occupied) {
-        // Койка уже занята, обновляем страницу
-        showAlert('Ошибка', `Койка №${bedIndex} уже занята другим пользователем. Страница будет обновлена.`);
-        window.location.reload();
-        return;
-      }
-      
       formData.append('patient_name', patientName);
       formData.append('diagnosis', diagnosis);
     }
     
-    // Отправка данных
     const response = await fetch('/occupy', {
       method: 'POST',
       body: formData
@@ -89,10 +72,15 @@ async function handleBedToggle(e) {
     if (response.ok) {
       window.location.reload();
     } else if (response.status === 409) {
-      // Конфликт - койка уже занята
-      const error = await response.text();
-      showAlert('Ошибка', error);
-      window.location.reload();
+      const errorText = await response.text();
+      const bedNumber = errorText.split(':')[1];
+      btn.innerHTML = originalHtml;
+      btn.disabled = false;
+      
+      // Модифицированная версия showAlert с колбэком
+      showAlertWithCallback('Койка занята', `Койка №${bedNumber} уже занята другим пациентом. Нажмите OK для обновления данных.`, () => {
+        window.location.reload();
+      });
     } else {
       throw new Error('Ошибка сервера');
     }
@@ -102,6 +90,39 @@ async function handleBedToggle(e) {
     btn.innerHTML = originalHtml;
     btn.disabled = false;
   }
+}
+
+function showAlertWithCallback(title, message, callback) {
+  const modal = new bootstrap.Modal('#confirmModal');
+  const modalEl = document.getElementById('confirmModal');
+  
+  // Настраиваем для alert
+  modalEl.querySelector('.modal-header').className = 'modal-header bg-warning text-dark';
+  modalEl.querySelector('.modal-title').textContent = title;
+  modalEl.querySelector('#confirmMessage').textContent = message;
+  modalEl.querySelector('#confirmBtn').textContent = 'OK';
+  modalEl.querySelector('#cancelBtn').style.display = 'none';
+  
+  const confirmBtn = modalEl.querySelector('#confirmBtn');
+  
+  // Очищаем предыдущие обработчики
+  confirmBtn.onclick = null;
+  
+  // Устанавливаем новый обработчик
+  confirmBtn.onclick = () => {
+    modal.hide();
+    // Возвращаем исходные настройки
+    modalEl.querySelector('.modal-header').className = 'modal-header bg-danger text-white';
+    modalEl.querySelector('#confirmBtn').textContent = 'Освободить';
+    modalEl.querySelector('#cancelBtn').style.display = 'block';
+    
+    // Вызываем колбэк после закрытия модального окна
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+  
+  modal.show();
 }
 
 function showCustomConfirm(title, message) {

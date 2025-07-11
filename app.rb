@@ -23,11 +23,12 @@ post '/occupy' do
   existing_bed = BedDay.find_by(date: date, bed_index: bed_index)
   
   if existing_bed && existing_bed.occupied? && !params[:patient_name].empty?
-    # Если койка уже занята, а пользователь пытается ее занять - возвращаем ошибку
-    halt 409, "Койка №#{bed_index} уже занята другим пациентом. Страница будет обновлена."
+    # Возвращаем специальный статус и сообщение
+    status 409
+    return "КОЙКА_ЗАНЯТА:#{bed_index}" # Добавляем номер койки в сообщение
   end
 
-  # Продолжаем стандартную логику
+  # Остальной код обработчика остается без изменений
   bed = BedDay.find_or_initialize_by(date: date, bed_index: bed_index)
   
   if params[:patient_name].empty?
