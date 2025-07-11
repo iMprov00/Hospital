@@ -222,6 +222,12 @@ get '/check_bed' do
   }.to_json
 end
 
+get '/occupied_list' do
+  @target_date = params[:date] ? Date.parse(params[:date]) : Date.today
+  @occupied_beds = BedDay.where(date: @target_date, occupied: true).order(:bed_index)
+  erb :occupied_list
+end
+
 before '/admin/*' do
   protected!
 end

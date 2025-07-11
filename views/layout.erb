@@ -27,22 +27,38 @@
 
 <body class="bg-light">
   <!-- Навбар -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-4">
-    <div class="container">
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-4">
+  <div class="container">
+    <% unless request.path_info == '/occupied_list' %>
       <a class="navbar-brand fw-bold d-flex align-items-center logo-link" href="/">
         <img src="/images/logo.png" alt="Логотип" class="logo-img">
         Госпитализация ДАР
       </a>
-      <div class="d-flex align-items-center">
+    <% else %>
+      <span class="navbar-brand fw-bold d-flex align-items-center logo-link">
+        <img src="/images/logo.png" alt="Логотип" class="logo-img">
+        Список занятых коек
+      </span>
+    <% end %>
+    
+    <div class="d-flex align-items-center">
+      <% unless request.path_info == '/occupied_list' %>
+        <a href="/occupied_list" class="text-white ms-2 list-icon" title="Список занятых коек">
+          <i class="bi bi-list-ul fs-2"></i>
+        </a>
         <a href="/reports" class="text-white ms-2 report-icon" title="Отчеты">
           <i class="bi bi-file-earmark-text fs-2"></i>
         </a>
         <a href="/admin/backups" class="text-white ms-2 settings-icon" title="Управление бэкапами">
           <i class="bi bi-gear fs-2"></i>
         </a>
-      </div>
+      <% end %>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Основной контент -->
   <div class="container">

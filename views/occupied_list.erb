@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <!-- Заголовок и выбор даты -->
+  <div class="d-flex justify-content-between align-items-center mb-3 no-print">
+
+    <div class="d-flex align-items-center">
+      <div class="date-picker-container me-3">
+        <i class="bi bi-calendar-date date-picker-icon"></i>
+        <input type="text" id="date-picker" class="form-control date-picker-input" 
+               value="<%= @target_date.strftime('%d.%m.%Y') %>" readonly>
+      </div>
+      <button onclick="printTable()" class="btn btn-primary">
+        <i class="bi bi-printer"></i> Печатать
+      </button>
+    </div>
+  </div>
+
+  <!-- Таблица -->
+  <div id="printable-table">
+    <div class="print-header">
+
+      <p class="text-muted"> <h4>Список занятых коек на <%= @target_date.strftime('%d.%m.%Y') %></h4></p>
+    </div>
+    <% if @occupied_beds.any? %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>№ Койки</th>
+            <th>ФИО пациента</th>
+            <th>Диагноз</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @occupied_beds.each do |bed| %>
+            <tr>
+              <td><%= bed.bed_index %></td>
+              <td><%= bed.patient_name %></td>
+              <td><%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>Нет занятых коек</p>
+    <% end %>
+  </div>
+</div>

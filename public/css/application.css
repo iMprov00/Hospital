@@ -45,6 +45,8 @@
   padding: 2rem 1.5rem;
 }
 
+
+
 #confirmModal .modal-footer {
   padding: 1rem 1.5rem 1.5rem;
   background-color: #f8f9fa;
@@ -52,6 +54,18 @@
 
 #confirmModal .icon-wrapper {
   animation: pulse 1.5s infinite;
+}
+
+/* Стиль для неактивного заголовка */
+.navbar-brand.static {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Стиль для скрытых иконок */
+.hidden-icon {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @keyframes pulse {

@@ -1,14 +1,17 @@
-// Главная функция инициализации
 document.addEventListener('DOMContentLoaded', function() {
   // Инициализация обработчиков для кнопок коек
-  initBedButtons();
+  if (document.querySelector('.toggle-btn')) {
+    initBedButtons();
+  }
 
-  //   // Инициализация всех модальных окон Bootstrap
-  // document.querySelectorAll('.modal').forEach(modalEl => {
-  //   new bootstrap.Modal(modalEl);
-    
-  // Инициализация Flatpickr с подсветкой занятых дат
-  initDatePicker();
+  // Инициализация date picker в зависимости от страницы
+  if (document.getElementById('date-picker')) {
+    if (window.location.pathname === '/occupied_list') {
+      initOccupiedListDatePicker();
+    } else {
+      initDatePicker();
+    }
+  }
 });
 
 function initBedButtons() {
@@ -91,7 +94,20 @@ async function handleBedToggle(e) {
     btn.disabled = false;
   }
 }
+function initOccupiedListDatePicker() {
+  const datePicker = document.getElementById('date-picker');
+  if (!datePicker) return;
 
+  flatpickr(datePicker, {
+    locale: "ru",
+    dateFormat: "d.m.Y",
+    allowInput: true,
+    defaultDate: datePicker.value,
+    onChange: function(selectedDates, dateStr) {
+      window.location.href = `/occupied_list?date=${dateStr}`;
+    }
+  });
+}
 function showAlertWithCallback(title, message, callback) {
   const modal = new bootstrap.Modal('#confirmModal');
   const modalEl = document.getElementById('confirmModal');
@@ -224,4 +240,36 @@ async function initDatePicker() {
       }
     }
   });
+}
+
+function printTable() {
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Список занятых коек на <%= @target_date.strftime('%d.%m.%Y') %></title>
+      <style>
+        body { font-family: Arial; margin: 20px; }
+        h4 { text-align: center; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        @page { size: auto; margin: 5mm; }
+      </style>
+    </head>
+    <body>
+      ${document.getElementById('printable-table').innerHTML}
+      <script>
+        window.onload = function() {
+          setTimeout(function() {
+            window.print();
+            window.close();
+          }, 200);
+        }
+      </script>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
 }
