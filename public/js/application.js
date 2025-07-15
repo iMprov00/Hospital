@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname === '/occupied_list') {
       initOccupiedListDatePicker();
     } else {
-      initDatePicker();
+      initDatePicker().then(() => {
+        // После инициализации flatpickr обновляем видимость коек
+        updateSpecialBedsVisibility();
+      });
     }
   }
 });
@@ -20,80 +23,113 @@ function initBedButtons() {
   });
 }
 
-async function handleBedToggle(e) {
-  e.preventDefault();
-  const btn = e.currentTarget;
-  const originalHtml = btn.innerHTML;
+function updateSpecialBedsVisibility() {
+  const datePicker = document.getElementById('date-picker');
+  if (!datePicker) return;
   
-  try {
-    btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
-    btn.disabled = true;
-    
-    const bedCard = btn.closest('.bed-card');
-    const date = bedCard.dataset.date;
-    const bedIndex = bedCard.querySelector('.card-title').textContent.match(/\d+/)[0];
-    const isOccupied = bedCard.classList.contains('occupied-card');
-    
-    const formData = new FormData();
-    formData.append('date', date);
-    formData.append('bed_index', bedIndex);
-    
-    if (isOccupied) {
-      const confirmed = await showCustomConfirm(
-        'Подтвердите действие',
-        'Вы действительно хотите освободить койку?'
-      );
-      
-      if (!confirmed) {
-        btn.innerHTML = originalHtml;
-        btn.disabled = false;
-        return;
-      }
-      
-      formData.append('patient_name', '');
-      formData.append('diagnosis', '');
-    } else {
-      const patientName = bedCard.querySelector('.patient-input').value.trim();
-      const diagnosis = bedCard.querySelector('.diagnosis-input').value.trim();
-      
-      if (!patientName) {
-        showAlert('Ошибка', 'Пожалуйста, введите имя пациента');
-        btn.innerHTML = originalHtml;
-        btn.disabled = false;
-        return;
-      }
-      
-      formData.append('patient_name', patientName);
-      formData.append('diagnosis', diagnosis);
-    }
-    
-    const response = await fetch('/occupy', {
-      method: 'POST',
-      body: formData
-    });
-    
-    if (response.ok) {
-      window.location.reload();
-    } else if (response.status === 409) {
-      const errorText = await response.text();
-      const bedNumber = errorText.split(':')[1];
-      btn.innerHTML = originalHtml;
-      btn.disabled = false;
-      
-      // Модифицированная версия showAlert с колбэком
-      showAlertWithCallback('Койка занята', `Койка №${bedNumber} уже занята другим пациентом. Нажмите OK для обновления данных.`, () => {
-        window.location.reload();
-      });
-    } else {
-      throw new Error('Ошибка сервера');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    showAlert('Ошибка', 'Не удалось выполнить действие');
-    btn.innerHTML = originalHtml;
-    btn.disabled = false;
+  let date;
+  if (datePicker._flatpickr) {
+    date = datePicker._flatpickr.selectedDates[0];
+  } else {
+    const dateParts = datePicker.value.split('.');
+    date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
   }
+  
+  if (!date || isNaN(date.getTime())) return;
+  
+  const weekday = date.getDay();
+  const specialBeds = document.querySelectorAll('.bed-card.special-bed');
+  
+  specialBeds.forEach(bed => {
+    bed.classList.toggle('visible', [1, 3, 5].includes(weekday));
+  });
 }
+
+// async function handleBedToggle(e) {
+//   e.preventDefault();
+//   const btn = e.currentTarget;
+//   const originalHtml = btn.innerHTML;
+  
+//   try {
+//     btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+//     btn.disabled = true;
+    
+//     const bedCard = btn.closest('.bed-card');
+//     const date = bedCard.dataset.date;
+//     const bedIndex = parseInt(bedCard.querySelector('.card-title').textContent.match(/\d+/)[0]);
+//     const weekday = new Date(date).getDay(); // 0-6, где 0 - воскресенье
+    
+//     // Проверка доступности специальных коек
+//     if (bedIndex > 18 && ![1, 3, 5].includes(weekday)) {
+//       showAlert('Ошибка', 'Эти койки доступны только по понедельникам, средам и пятницам');
+//       btn.innerHTML = originalHtml;
+//       btn.disabled = false;
+//       return;
+//     }
+    
+//     const formData = new FormData();
+//     formData.append('date', date);
+//     formData.append('bed_index', bedIndex);
+    
+//     // Определяем, занята ли койка (проверяем наличие класса occupied-card)
+//     const isOccupied = bedCard.classList.contains('occupied-card');
+    
+//     if (isOccupied) {
+//       const confirmed = await showCustomConfirm(
+//         'Подтвердите действие',
+//         'Вы действительно хотите освободить койку?'
+//       );
+      
+//       if (!confirmed) {
+//         btn.innerHTML = originalHtml;
+//         btn.disabled = false;
+//         return;
+//       }
+      
+//       formData.append('patient_name', '');
+//       formData.append('diagnosis', '');
+//     } else {
+//       const patientName = bedCard.querySelector('.patient-input').value.trim();
+//       const diagnosis = bedCard.querySelector('.diagnosis-input').value.trim();
+      
+//       if (!patientName) {
+//         showAlert('Ошибка', 'Пожалуйста, введите имя пациента');
+//         btn.innerHTML = originalHtml;
+//         btn.disabled = false;
+//         return;
+//       }
+      
+//       formData.append('patient_name', patientName);
+//       formData.append('diagnosis', diagnosis);
+//     }
+    
+//     const response = await fetch('/occupy', {
+//       method: 'POST',
+//       body: formData
+//     });
+    
+//     if (response.ok) {
+//       window.location.reload();
+//     } else if (response.status === 409) {
+//       const errorText = await response.text();
+//       const bedNumber = errorText.split(':')[1];
+//       btn.innerHTML = originalHtml;
+//       btn.disabled = false;
+      
+//       // Модифицированная версия showAlert с колбэком
+//       showAlertWithCallback('Койка занята', `Койка №${bedNumber} уже занята другим пациентом. Нажмите OK для обновления данных.`, () => {
+//         window.location.reload();
+//       });
+//     } else {
+//       throw new Error('Ошибка сервера');
+//     }
+//   } catch (error) {
+//     console.error('Error:', error);
+//     showAlert('Ошибка', 'Не удалось выполнить действие');
+//     btn.innerHTML = originalHtml;
+//     btn.disabled = false;
+//   }
+// }
 function initOccupiedListDatePicker() {
   const datePicker = document.getElementById('date-picker');
   if (!datePicker) return;
@@ -218,28 +254,35 @@ async function initDatePicker() {
   let occupiedDates = [];
   try {
     const response = await fetch('/occupied_dates');
+    if (!response.ok) throw new Error('Network response was not ok');
     occupiedDates = await response.json();
   } catch (error) {
     console.error('Ошибка при загрузке занятых дат:', error);
+    // Можно показать пользователю уведомление об ошибке
+    showAlert('Ошибка', 'Не удалось загрузить данные о занятых датах');
   }
 
   const flatpickrInstance = flatpickr(datePicker, {
     locale: "ru",
-    dateFormat: "d.m.Y", // Новый формат дд.мм.гггг
+    dateFormat: "d.m.Y",
     allowInput: true,
     defaultDate: datePicker.value,
     onChange: function(selectedDates, dateStr, instance) {
       document.getElementById('date-form').submit();
     },
     onDayCreate: function(dObj, dStr, fp, dayElem) {
-      const date = flatpickr.formatDate(dayElem.dateObj, "Y-m-d");
-      if (occupiedDates.includes(date)) {
+      const date = dayElem.dateObj;
+      const formattedDate = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      
+      if (occupiedDates.includes(formattedDate)) {
         dayElem.style.backgroundColor = "#ffdddd";
         dayElem.style.color = "#cc0000";
         dayElem.style.fontWeight = "bold";
       }
     }
   });
+
+  return flatpickrInstance;
 }
 
 function printTable() {

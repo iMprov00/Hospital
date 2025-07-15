@@ -4,6 +4,7 @@ require 'sinatra'           # Подключение фреймворка Sinatr
 require 'sinatra/reloader'  # Подключение модуля перезагрузки для разработки
 require 'sinatra/activerecord'  # Подключение ActiveRecord для работы с БД
 # require 'axlsx'
+require 'sinatra/flash'
 
 require_relative 'models/bed_day'  # Подключение модели BedDay
 
@@ -14,21 +15,10 @@ get '/' do    # Обработчик GET-запроса для главной с
   @beds = load_or_initialize_beds(@target_date)  # Загрузка или инициализация данных о койках
   erb :index    # Рендеринг шаблона index.erb
 end
-
 post '/occupy' do
   date = Date.parse(params[:date])
   bed_index = params[:bed_index].to_i
   
-  # Проверяем, не занята ли уже койка другим пользователем
-  existing_bed = BedDay.find_by(date: date, bed_index: bed_index)
-  
-  if existing_bed && existing_bed.occupied? && !params[:patient_name].empty?
-    # Возвращаем специальный статус и сообщение
-    status 409
-    return "КОЙКА_ЗАНЯТА:#{bed_index}" # Добавляем номер койки в сообщение
-  end
-
-  # Остальной код обработчика остается без изменений
   bed = BedDay.find_or_initialize_by(date: date, bed_index: bed_index)
   
   if params[:patient_name].empty?
@@ -38,6 +28,9 @@ post '/occupy' do
     
     bed.update!(
       patient_name: params[:patient_name],
+      medical_organization: params[:medical_organization], # Добавлено
+      phone: params[:phone], # Добавлено
+      address: params[:address], # Добавлено
       diagnosis_code: diagnosis_parts[0],
       diagnosis_name: diagnosis_parts[1] || '',
       occupied: true
@@ -47,18 +40,27 @@ post '/occupy' do
   redirect "/?date=#{date}"
 end
 
-# Эндпоинт для получения занятых дат
 get '/occupied_dates' do
   content_type :json
   
-  # Получаем даты, где все 18 коек заняты
-  occupied_dates = BedDay.select(:date)
-                         .group(:date)
-                         .having('COUNT(*) = ?', 18)
-                         .pluck(:date)
-                         .map { |d| d.to_s }
+  # Для SQLite
+  fully_occupied_dates = BedDay
+    .group(:date)
+    .select(:date)
+    .having(
+      "(strftime('%w', date) IN ('1','3','5') AND COUNT(*) >= 23) OR " +
+      "(strftime('%w', date) NOT IN ('1','3','5') AND COUNT(*) >= 18)"
+    )
+    .pluck(:date)
   
-  occupied_dates.to_json
+  fully_occupied_dates.to_json
+end
+
+get '/occupied_list' do
+  @target_date = params[:date] ? Date.parse(params[:date]) : Date.today
+  @occupied_beds = BedDay.where(date: @target_date, occupied: true)
+                         .order(:bed_index)
+  erb :occupied_list
 end
 
 get '/reports' do
@@ -233,12 +235,18 @@ before '/admin/*' do
 end
 
 helpers do    # Блок вспомогательных методов
-  def load_or_initialize_beds(date)    # Метод загрузки или инициализации коек
-    beds = BedDay.where(date: date).index_by(&:bed_index)  # Получение всех коек за дату и индексация
+ def load_or_initialize_beds(date)
+
+    weekday = date.wday
+    max_beds = [1, 3, 5].include?(weekday) ? 23 : 18
     
-    (1..18).map do |idx|    # Цикл по 18 койкам (изменили на 18)
-      beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false)  # Существующая койка или новая
-    end
+    beds = BedDay.where(date: date).index_by(&:bed_index)
+    
+    {
+      regular: (1..18).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) },
+      invasive: [1,3,5].include?(weekday) ? (19..23).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) } : []
+    }
+  
   end
 
   def protected!

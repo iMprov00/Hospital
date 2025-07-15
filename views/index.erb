@@ -1,61 +1,354 @@
 <!-- index.erb -->
-<div class="row justify-content-center mb-4">    <!-- Ряд с центрированием -->
-  <div class="col-md-4">    <!-- Колонка средней ширины -->
-    <div class="card shadow-sm">    <!-- Карточка без лишних отступов -->
-      <div class="card-body text-center">    <!-- Центрированное содержимое -->
-<label for="date-picker" class="form-label mb-2">
-  <h2 style="font-family: 'Jost', sans-serif; font-weight: 600;">Дата госпитализации</h2>
-</label>
+<div class="row justify-content-center mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <label for="date-picker" class="form-label mb-2">
+          <h2 style="font-family: 'Jost', sans-serif; font-weight: 600;">Дата госпитализации</h2>
+        </label>
         <form id="date-form" class="d-inline-block">
-            <div class="date-picker-container position-relative">
-              <input type="text" 
-                     class="form-control fw-bold fs-5 py-2 date-picker-input ps-5" 
-                     name="date" 
-                     value="<%= @target_date.strftime('%d.%m.%Y') %>"
-                     id="date-picker"
-                     placeholder="дд.мм.гггг"
-                     data-input>
-              <i class="bi bi-calendar3 date-picker-icon"></i>
-            </div>
+          <div class="date-picker-container position-relative">
+            <input type="text" 
+                   class="form-control fw-bold fs-5 py-2 date-picker-input ps-5" 
+                   name="date" 
+                   value="<%= @target_date.strftime('%d.%m.%Y') %>"
+                   id="date-picker"
+                   placeholder="дд.мм.гггг"
+                   data-input>
+            <i class="bi bi-calendar3 date-picker-icon"></i>
+          </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-  <!-- Сетка коек -->
-  <div class="row row-cols-2 row-cols-md-4 g-4">    <!-- Сетка карточек коек -->
-    <% @beds.each do |bed| %>    <!-- Цикл по всем койкам -->
-      <div class="col">    <!-- Колонка для карточки -->
-<div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
-  <div class="card-body text-center p-2">
-    <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
+
+<!-- Основные койки (1-18) -->
+<div class="row row-cols-2 row-cols-md-4 g-4 mb-4">
+  <% @beds[:regular].each do |bed| %>
+    <div class="col">
+      <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
+        <div class="card-body text-center p-2">
+          <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
+          
+          <% if bed.occupied %>
+            <form class="bed-form">
+              <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
+              <input type="hidden" name="bed_index" value="<%= bed.bed_index %>">
+              <input type="hidden" name="patient_name" value="">
+              <input type="hidden" name="medical_organization" value="">
+              <input type="hidden" name="phone" value="">
+              <input type="hidden" name="address" value="">
+              <input type="hidden" name="diagnosis" value="">
+              
+              <div class="mb-1">
+                <span class="badge bg-danger">Занято</span>
+                <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
+                
+                <% if bed.medical_organization.present? %>
+                  <p class="text-muted small mb-1">Организация: <%= bed.medical_organization %></p>
+                <% end %>
+                
+                <% if bed.phone.present? %>
+                  <p class="text-muted small mb-1">Телефон: <%= bed.phone %></p>
+                <% end %>
+                
+                <% if bed.address.present? %>
+                  <p class="text-muted small mb-1">Адрес: <%= bed.address %></p>
+                <% end %>
+                
+                <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
+                  <p class="text-muted small mb-1">Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></p>
+                <% end %>
+              </div>
+              <button type="submit" class="btn btn-sm btn-outline-danger w-100 py-1">Освободить</button>
+            </form>
+          <% else %>
+            <form class="bed-form">
+              <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
+              <input type="hidden" name="bed_index" value="<%= bed.bed_index %>">
+              
+              <div class="mb-1">
+                <span class="badge bg-success">Свободно</span>
+                <input type="text" name="patient_name" class="form-control form-control-sm mt-1" placeholder="ФИО" required>
+                <input type="text" name="medical_organization" class="form-control form-control-sm mt-1" placeholder="Мед. организация" required>
+                <input type="tel" name="phone" class="form-control form-control-sm mt-1" placeholder="Телефон" required>
+                <input type="text" name="address" class="form-control form-control-sm mt-1" placeholder="Адрес" required>
+              </div>
+              <div class="mb-1">
+                <input type="text" name="diagnosis" class="form-control form-control-sm" placeholder="Диагноз">
+              </div>
+              <button type="submit" class="btn btn-sm btn-custom w-100 py-1">Забронировать</button>
+            </form>
+          <% end %>
+        </div>
+        <div class="card-footer bg-transparent py-1">
+          <small class="text-muted"><%= bed.date.strftime('%d.%m.%Y') %></small>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Инвазивка (19-23) - только по понедельникам, средам и пятницам -->
+<% if @beds[:invasive].any? %>
+  <div class="invasive-section mt-5 pt-4 border-top border-3 border-warning">
+    <h4 class="text-center mb-4 text-warning">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>Инвазивные койки
+    </h4>
     
-    <% if bed.occupied %>
-      <div class="mb-1">
-        <span class="badge bg-danger">Занято</span>
-        <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
-        <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
-          <p class="text-muted small mb-1">Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></p>
-        <% end %>
-      </div>
-      <button class="btn btn-sm btn-outline-danger toggle-btn w-100 py-1">Освободить</button>
-    <% else %>
-      <div class="mb-1">
-        <span class="badge bg-success">Свободно</span>
-        <input type="text" name="patient_name" class="form-control form-control-sm mt-1 patient-input" placeholder="ФИО">
-      </div>
-      <div class="mb-1">
-        <input type="text" name="diagnosis" class="form-control form-control-sm diagnosis-input" placeholder="Диагноз" 
-               value="<%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ').presence %>">
-      </div>
-      <button class="btn btn-sm btn-custom toggle-btn w-100 py-1">Забронировать</button>
-    <% end %>
+    <div class="row row-cols-2 row-cols-md-4 g-4">
+      <% @beds[:invasive].each do |bed| %>
+        <div class="col">
+          <div class="card bed-card invasive-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
+            <div class="card-body text-center p-2">
+              <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
+              
+              <% if bed.occupied %>
+                <form class="bed-form">
+                  <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
+                  <input type="hidden" name="bed_index" value="<%= bed.bed_index %>">
+                  <input type="hidden" name="patient_name" value="">
+                  <input type="hidden" name="medical_organization" value="">
+                  <input type="hidden" name="phone" value="">
+                  <input type="hidden" name="address" value="">
+                  <input type="hidden" name="diagnosis" value="">
+                  
+                  <div class="mb-1">
+                    <span class="badge bg-warning text-dark">Занято</span>
+                    <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
+                    
+                    <% if bed.medical_organization.present? %>
+                      <p class="text-muted small mb-1">Организация: <%= bed.medical_organization %></p>
+                    <% end %>
+                    
+                    <% if bed.phone.present? %>
+                      <p class="text-muted small mb-1">Телефон: <%= bed.phone %></p>
+                    <% end %>
+                    
+                    <% if bed.address.present? %>
+                      <p class="text-muted small mb-1">Адрес: <%= bed.address %></p>
+                    <% end %>
+                    
+                    <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
+                      <p class="text-muted small mb-1">Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></p>
+                    <% end %>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-outline-warning w-100 py-1">Освободить</button>
+                </form>
+              <% else %>
+                <form class="bed-form">
+                  <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
+                  <input type="hidden" name="bed_index" value="<%= bed.bed_index %>">
+                  
+                  <div class="mb-1">
+                    <span class="badge bg-warning text-dark">Свободно</span>
+                    <input type="text" name="patient_name" class="form-control form-control-sm mt-1" placeholder="ФИО" required>
+                    <input type="text" name="medical_organization" class="form-control form-control-sm mt-1" placeholder="Мед. организация" required>
+                    <input type="tel" name="phone" class="form-control form-control-sm mt-1" placeholder="Телефон" required>
+                    <input type="text" name="address" class="form-control form-control-sm mt-1" placeholder="Адрес" required>
+                  </div>
+                  <div class="mb-1">
+                    <input type="text" name="diagnosis" class="form-control form-control-sm" placeholder="Диагноз">
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-warning w-100 py-1">Забронировать</button>
+                </form>
+              <% end %>
+            </div>
+            <div class="card-footer bg-transparent py-1">
+              <small class="text-muted"><%= bed.date.strftime('%d.%m.%Y') %></small>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="card-footer bg-transparent py-1">
-    <small class="text-muted"><%= bed.date.strftime('%d.%m.%Y') %></small>
-  </div>
-</div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<% end %>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Инициализация date picker
+  const datePicker = document.getElementById('date-picker');
+  if (datePicker) {
+    flatpickr(datePicker, {
+      locale: "ru",
+      dateFormat: "d.m.Y",
+      allowInput: true,
+      defaultDate: datePicker.value,
+      onChange: function(selectedDates, dateStr) {
+        document.getElementById('date-form').submit();
+      }
+    });
+  }
+
+  // Обработка форм бронирования/освобождения коек
+  document.querySelectorAll('.bed-form').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const originalHtml = btn.innerHTML;
+      const bedCard = this.closest('.bed-card');
+      const isOccupied = bedCard.classList.contains('occupied-card');
+      
+      try {
+        // Проверяем состояние койки в БД
+        const date = bedCard.dataset.date;
+        const bedIndex = parseInt(bedCard.querySelector('.card-title').textContent.match(/\d+/)[0]);
+        const bedStatus = await checkBedStatus(date, bedIndex);
+        
+        // Если койка занята (действие - освобождение), запрашиваем подтверждение
+        if (isOccupied) {
+          const confirmed = await showCustomConfirm(
+            'Подтвердите действие',
+            'Вы действительно хотите освободить койку?'
+          );
+          if (!confirmed) {
+            return;
+          }
+        } 
+        // Если койка свободна, но в БД занята - обновляем страницу
+        else if (bedStatus.occupied) {
+          showAlertWithCallback('Койка занята', 
+            `Койка №${bedIndex} уже занята пациентом ${bedStatus.patient_name}. Нажмите OK для обновления данных.`, 
+            () => window.location.reload()
+          );
+          return;
+        }
+        // Если бронируем - проверяем обязательные поля
+        else {
+          const patientName = this.querySelector('input[name="patient_name"]').value.trim();
+          if (!patientName) {
+            showAlert('Ошибка', 'Пожалуйста, введите имя пациента');
+            return;
+          }
+        }
+        
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+        btn.disabled = true;
+        
+        const formData = new FormData(this);
+        const response = await fetch('/occupy', {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          window.location.reload();
+        } else if (response.status === 409) {
+          const errorText = await response.text();
+          const bedNumber = errorText.split(':')[1];
+          showAlertWithCallback('Койка занята', 
+            `Койка №${bedNumber} уже занята другим пациентом. Нажмите OK для обновления данных.`,
+            () => window.location.reload()
+          );
+        } else {
+          throw new Error(await response.text());
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        showAlert('Ошибка', error.message || 'Не удалось выполнить действие');
+      } finally {
+        btn.innerHTML = originalHtml;
+        btn.disabled = false;
+      }
+    });
+  });
+
+  // Функция для проверки состояния койки в БД
+  async function checkBedStatus(date, bedIndex) {
+    try {
+      const response = await fetch(`/check_bed?date=${date}&bed_index=${bedIndex}`);
+      if (!response.ok) throw new Error('Network response was not ok');
+      return await response.json();
+    } catch (error) {
+      console.error('Ошибка при проверке состояния койки:', error);
+      return { occupied: false, patient_name: '' };
+    }
+  }
+
+  // Функции для работы с модальными окнами
+  function showAlertWithCallback(title, message, callback) {
+    const modal = new bootstrap.Modal('#confirmModal');
+    const modalEl = document.getElementById('confirmModal');
+    
+    modalEl.querySelector('.modal-header').className = 'modal-header bg-warning text-dark';
+    modalEl.querySelector('.modal-title').textContent = title;
+    modalEl.querySelector('#confirmMessage').textContent = message;
+    modalEl.querySelector('#confirmBtn').textContent = 'OK';
+    modalEl.querySelector('#cancelBtn').style.display = 'none';
+    
+    const confirmBtn = modalEl.querySelector('#confirmBtn');
+    confirmBtn.onclick = () => {
+      modal.hide();
+      modalEl.querySelector('.modal-header').className = 'modal-header bg-danger text-white';
+      modalEl.querySelector('#confirmBtn').textContent = 'Освободить';
+      modalEl.querySelector('#cancelBtn').style.display = 'block';
+      if (callback) callback();
+    };
+    
+    modal.show();
+  }
+
+  function showCustomConfirm(title, message) {
+    return new Promise((resolve) => {
+      const modal = new bootstrap.Modal('#confirmModal');
+      const modalEl = document.getElementById('confirmModal');
+      
+      modalEl.querySelector('.modal-content').style.transform = 'translateY(20px)';
+      modalEl.querySelector('.modal-content').style.opacity = '0';
+      
+      modalEl.querySelector('.modal-title').innerHTML = `<i class="bi bi-question-circle me-2"></i>${title}`;
+      modalEl.querySelector('#confirmMessage').textContent = message;
+      
+      const confirmBtn = modalEl.querySelector('#confirmBtn');
+      const cancelBtn = modalEl.querySelector('#cancelBtn');
+      
+      const cleanUp = () => {
+        confirmBtn.onclick = null;
+        cancelBtn.onclick = null;
+      };
+      
+      confirmBtn.onclick = () => {
+        modal.hide();
+        cleanUp();
+        resolve(true);
+      };
+      
+      cancelBtn.onclick = () => {
+        modal.hide();
+        cleanUp();
+        resolve(false);
+      };
+      
+      modal.show();
+      
+      setTimeout(() => {
+        modalEl.querySelector('.modal-content').style.transform = 'translateY(0)';
+        modalEl.querySelector('.modal-content').style.opacity = '1';
+        modalEl.querySelector('.modal-content').style.transition = 'all 0.3s ease-out';
+      }, 10);
+    });
+  }
+
+  function showAlert(title, message) {
+    const modal = new bootstrap.Modal('#confirmModal');
+    const modalEl = document.getElementById('confirmModal');
+    
+    modalEl.querySelector('.modal-header').className = 'modal-header bg-warning text-dark';
+    modalEl.querySelector('.modal-title').textContent = title;
+    modalEl.querySelector('#confirmMessage').textContent = message;
+    modalEl.querySelector('#confirmBtn').textContent = 'OK';
+    modalEl.querySelector('#cancelBtn').style.display = 'none';
+    
+    const confirmBtn = modalEl.querySelector('#confirmBtn');
+    confirmBtn.onclick = () => {
+      modal.hide();
+      modalEl.querySelector('.modal-header').className = 'modal-header bg-danger text-white';
+      modalEl.querySelector('#confirmBtn').textContent = 'Освободить';
+      modalEl.querySelector('#cancelBtn').style.display = 'block';
+    };
+    
+    modal.show();
+  }
+});
+</script>

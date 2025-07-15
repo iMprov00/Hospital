@@ -1,11 +1,17 @@
 # Файл модели BedDay (models/bed_day.rb)
 class BedDay < ActiveRecord::Base  # Наследование от базового класса ActiveRecord
-  # Валидация наличия даты
   validates :date, presence: true
+  validates :bed_index, inclusion: { in: 1..23 } # Теперь до 23 коек
   
-  # Валидация номера койки (должен быть в диапазоне 1-18)
-  validates :bed_index, inclusion: { in: 1..18 } # Изменили на 18
-  
-  # Валидация уникальности номера койки в пределах одной даты
   validates_uniqueness_of :bed_index, scope: :date
+  
+  # Метод для проверки, доступна ли койка в этот день
+  def self.available_beds(date)
+    weekday = date.wday
+    if [1, 3, 5].include?(weekday) # Понедельник, среда, пятница
+      23
+    else
+      18
+    end
+  end
 end

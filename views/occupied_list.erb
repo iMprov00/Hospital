@@ -1,46 +1,213 @@
-<div class="container mt-4">
-  <!-- Заголовок и выбор даты -->
-  <div class="d-flex justify-content-between align-items-center mb-3 no-print">
-
-    <div class="d-flex align-items-center">
-      <div class="date-picker-container me-3">
-        <i class="bi bi-calendar-date date-picker-icon"></i>
-        <input type="text" id="date-picker" class="form-control date-picker-input" 
-               value="<%= @target_date.strftime('%d.%m.%Y') %>" readonly>
+<!-- occupied_list.erb -->
+<div class="container">
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <label for="date-picker" class="form-label mb-2">
+            <h2 style="font-family: 'Jost', sans-serif; font-weight: 600;">Список занятых коек</h2>
+          </label>
+          <form id="date-form" class="d-inline-block">
+            <div class="date-picker-container position-relative">
+              <input type="text" 
+                     class="form-control fw-bold fs-5 py-2 date-picker-input ps-5" 
+                     name="date" 
+                     value="<%= @target_date.strftime('%d.%m.%Y') %>"
+                     id="date-picker"
+                     placeholder="дд.мм.гггг"
+                     data-input>
+              <i class="bi bi-calendar3 date-picker-icon"></i>
+            </div>
+          </form>
+        </div>
       </div>
-      <button onclick="printTable()" class="btn btn-primary">
-        <i class="bi bi-printer"></i> Печатать
-      </button>
     </div>
   </div>
 
-  <!-- Таблица -->
-  <div id="printable-table">
-    <div class="print-header">
+  <div class="row mb-4">
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">Занятые койки на <%= @target_date.strftime('%d.%m.%Y') %></h4>
+            <button class="btn btn-sm btn-primary" onclick="printTable()">
+              <i class="bi bi-printer"></i> Печать
+            </button>
+          </div>
 
-      <p class="text-muted"> <h4>Список занятых коек на <%= @target_date.strftime('%d.%m.%Y') %></h4></p>
+          <div class="table-responsive" id="printable-table">
+            <table class="table table-striped table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th>№ Койки</th>
+                  <th>ФИО пациента</th>
+                  <th>Мед. организация</th>
+                  <th>Телефон</th>
+                  <th>Адрес</th>
+                  <th>Диагноз</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @occupied_beds.each do |bed| %>
+                  <tr class="<%= 'table-warning' if bed.bed_index > 18 %>">
+                    <td><strong><%= bed.bed_index %></strong></td>
+                    <td><%= bed.patient_name %></td>
+                    <td><%= bed.medical_organization %></td>
+                    <td><%= bed.phone %></td>
+                    <td><%= bed.address %></td>
+                    <td>
+                      <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
+                        <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-3 text-end">
+            <small class="text-muted">Всего занято: <%= @occupied_beds.count %></small>
+          </div>
+        </div>
+      </div>
     </div>
-    <% if @occupied_beds.any? %>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>№ Койки</th>
-            <th>ФИО пациента</th>
-            <th>Диагноз</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @occupied_beds.each do |bed| %>
-            <tr>
-              <td><%= bed.bed_index %></td>
-              <td><%= bed.patient_name %></td>
-              <td><%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p>Нет занятых коек</p>
-    <% end %>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Инициализация date picker
+  if (document.getElementById('date-picker')) {
+    flatpickr('#date-picker', {
+      locale: "ru",
+      dateFormat: "d.m.Y",
+      allowInput: true,
+      defaultDate: document.getElementById('date-picker').value,
+      onChange: function(selectedDates, dateStr) {
+        window.location.href = `/occupied_list?date=${dateStr}`;
+      }
+    });
+  }
+
+  // Обработка кнопок "Освободить"
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const bedIndex = this.dataset.bedIndex;
+      const date = this.dataset.date;
+      
+      const confirmed = confirm(`Вы действительно хотите освободить койку №${bedIndex}?`);
+      if (confirmed) {
+        fetch('/occupy', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `date=${date}&bed_index=${bedIndex}&patient_name=`
+        }).then(response => {
+          if (response.ok) {
+            window.location.reload();
+          }
+        });
+      }
+    });
+  });
+});
+
+<script>
+function printTable() {
+  const printWindow = window.open('', '_blank');
+  
+  // Получаем данные из таблицы
+  const table = document.getElementById('printable-table').cloneNode(true);
+  const rows = table.querySelectorAll('tr');
+  const date = document.getElementById('date-picker').value;
+  const totalBeds = <%= @occupied_beds.count %>;
+  
+  // Создаем HTML для печати
+  const printContent = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Список занятых коек на ${date}</title>
+      <style>
+        body { font-family: Arial; margin: 20px; }
+        .print-header { 
+          text-align: center; 
+          margin-bottom: 20px;
+          padding-bottom: 10px;
+          border-bottom: 2px solid #333;
+        }
+        .print-title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .print-date {
+          font-size: 16px;
+          color: #555;
+        }
+        table { 
+          width: 100%; 
+          border-collapse: collapse; 
+          margin-top: 15px; 
+          font-size: 12px; 
+        }
+        th, td { 
+          border: 1px solid #000; 
+          padding: 8px; 
+          text-align: left; 
+        }
+        th { 
+          background-color: #f2f2f2; 
+          font-weight: bold;
+        }
+        .warning-row { 
+          background-color: #fff9e6; 
+        }
+        .print-footer {
+          margin-top: 15px;
+          text-align: right;
+          font-size: 12px;
+          color: #555;
+          padding-top: 10px;
+          border-top: 1px solid #ddd;
+        }
+        @page { 
+          size: auto; 
+          margin: 10mm; 
+        }
+        @media print {
+          .print-header { 
+            page-break-after: avoid;
+          }
+          table {
+            page-break-inside: auto;
+          }
+          tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="print-header">
+        <div class="print-title">Госпитализация на ${date}</div>
+        <div class="print-date">Отчет сформирован: ${new Date().toLocaleDateString('ru-RU')} ${new Date().toLocaleTimeString('ru-RU').slice(0,5)}</div>
+      </div>
+      ${table.outerHTML}
+      <div class="print-footer">
+        <div>Всего занято коек: ${totalBeds}</div>
+        <div>Инвазивные койки выделены цветом</div>
+      </div>
+      <script>
+        window.onload = function() {
+          setTimeout(function() {
+            window.print();
+            window.close();
+          }, 200);
+        }
+      </script>
+    </body>
+    </html>

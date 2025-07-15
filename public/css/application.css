@@ -45,7 +45,71 @@
   padding: 2rem 1.5rem;
 }
 
+/* Обновленные стили для специальных коек */
+.bed-card.special-bed {
+  background-color: #fff9e6 !important;
+  border: 2px solid #ffcc00 !important;
 
+}
+
+
+/* Стили для раздела "Инвазивка" */
+.invasive-section {
+  position: relative;
+  border-top: 3px solid #ffc107 !important;
+}
+
+.invasive-section h4 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Стили для карточек инвазивных коек */
+.invasive-card {
+  background-color: #fff9e6;
+  border: 2px solid #ffc107;
+}
+
+.invasive-card .card-title {
+  color: #cc9900;
+  font-weight: bold;
+}
+
+.invasive-card .badge.bg-success {
+  background-color: #ffc107 !important;
+  color: #664d00;
+}
+
+.invasive-card .btn-custom {
+  background-color: #ffc107;
+  border-color: #cc9900;
+  color: #664d00;
+}
+
+.invasive-card .btn-custom:hover {
+  background-color: #e6b800;
+  border-color: #b38600;
+}
+.bed-card.special-bed .card-title {
+  color: #cc9900 !important;
+  font-weight: bold !important;
+}
+
+.bed-card.special-bed .badge.bg-success {
+  background-color: #ffcc00 !important;
+  color: #664d00 !important;
+}
+
+.bed-card.special-bed .btn-custom {
+  background-color: #ffcc00 !important;
+  border-color: #cc9900 !important;
+  color: #664d00 !important;
+}
+
+.bed-card.special-bed .btn-custom:hover {
+  background-color: #e6b800 !important;
+  border-color: #b38600 !important;
+}
 
 #confirmModal .modal-footer {
   padding: 1rem 1.5rem 1.5rem;
