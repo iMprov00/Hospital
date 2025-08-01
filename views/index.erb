@@ -29,8 +29,14 @@
     <div class="col">
       <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
         <div class="card-body text-center p-2">
-          <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
-          
+            <h5 class="card-title fs-6 mb-1">
+              Койка #<%= bed.bed_index %> 
+              <% if (@target_date < Date.new(2025, 8, 18) && bed.bed_index >= 19) || 
+                    (@target_date >= Date.new(2025, 8, 18) && bed.bed_index >= 14) %>
+
+              <% end %>
+            </h5>
+                      
           <% if bed.occupied %>
             <form class="bed-form">
               <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
@@ -90,11 +96,15 @@
   <% end %>
 </div>
 
-<!-- Инвазивка (19-23) - только по понедельникам, средам и пятницам -->
 <% if @beds[:invasive].any? %>
   <div class="invasive-section mt-5 pt-4 border-top border-3 border-warning">
     <h4 class="text-center mb-4 text-warning">
-      <i class="bi bi-exclamation-triangle-fill me-2"></i>Инвазивные койки
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      <% if @target_date < Date.new(2025, 8, 18) %>
+        Инвазивные койки (19-23)
+      <% else %>
+        Инвазивные койки (14-18)
+      <% end %>
     </h4>
     
     <div class="row row-cols-2 row-cols-md-4 g-4">
@@ -102,7 +112,13 @@
         <div class="col">
           <div class="card bed-card invasive-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
             <div class="card-body text-center p-2">
-              <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
+              <h5 class="card-title fs-6 mb-1">
+                Койка #<%= bed.bed_index %> 
+                <% if (@target_date < Date.new(2025, 8, 18) && bed.bed_index >= 19) || 
+                      (@target_date >= Date.new(2025, 8, 18) && bed.bed_index >= 14) %>
+                  (инвазивная)
+                <% end %>
+              </h5>
               
               <% if bed.occupied %>
                 <form class="bed-form">

@@ -43,8 +43,11 @@ end
 get '/occupied_dates' do
   content_type :json
   
-  # Для SQLite
-  fully_occupied_dates = BedDay
+  transition_date = Date.new(2025, 8, 18)
+  
+  # Для дат до 18.08.2025
+  old_logic_dates = BedDay
+    .where("date < ?", transition_date)
     .group(:date)
     .select(:date)
     .having(
@@ -53,7 +56,15 @@ get '/occupied_dates' do
     )
     .pluck(:date)
   
-  fully_occupied_dates.to_json
+  # Для дат после 18.08.2025
+  new_logic_dates = BedDay
+    .where("date >= ?", transition_date)
+    .group(:date)
+    .select(:date)
+    .having("COUNT(*) >= 18")
+    .pluck(:date)
+  
+  (old_logic_dates + new_logic_dates).to_json
 end
 
 get '/occupied_list' do
@@ -235,9 +246,12 @@ before '/admin/*' do
 end
 
 helpers do    # Блок вспомогательных методов
- def load_or_initialize_beds(date)
-
-    weekday = date.wday
+def load_or_initialize_beds(date)
+  transition_date = Date.new(2025, 8, 18)
+  weekday = date.wday
+  
+  if date < transition_date
+    # Старая логика (до 18.08.2025)
     max_beds = [1, 3, 5].include?(weekday) ? 23 : 18
     
     beds = BedDay.where(date: date).index_by(&:bed_index)
@@ -246,8 +260,19 @@ helpers do    # Блок вспомогательных методов
       regular: (1..18).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) },
       invasive: [1,3,5].include?(weekday) ? (19..23).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) } : []
     }
-  
+  else
+    # Новая логика (с 18.08.2025)
+    beds = BedDay.where(date: date).index_by(&:bed_index)
+    
+    # Определяем, нужно ли показывать инвазивные койки (только в Пн, Ср, Пт)
+    show_invasive = [1,3,5].include?(weekday)
+    
+    {
+      regular: (1..(show_invasive ? 13 : 18)).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) },
+      invasive: show_invasive ? (14..18).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) } : []
+    }
   end
+end
 
   def protected!
     return if authorized?
