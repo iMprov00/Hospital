@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_09_090314) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_15_040656) do
   create_table "bed_days", force: :cascade do |t|
     t.date "date", null: false
     t.integer "bed_index", null: false
@@ -20,6 +20,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_09_090314) do
     t.datetime "updated_at", null: false
     t.string "diagnosis_code"
     t.string "diagnosis_name"
+    t.string "medical_organization"
+    t.string "phone"
+    t.string "address"
     t.index ["date", "bed_index"], name: "index_bed_days_on_date_and_bed_index", unique: true
   end
 end
