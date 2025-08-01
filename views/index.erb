@@ -29,8 +29,14 @@
     <div class="col">
       <div class="card bed-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
         <div class="card-body text-center p-2">
-          <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
-          
+            <h5 class="card-title fs-6 mb-1">
+              Койка #<%= bed.bed_index %> 
+              <% if (@target_date < Date.new(2025, 8, 18) && bed.bed_index >= 19) || 
+                    (@target_date >= Date.new(2025, 8, 18) && bed.bed_index >= 14) %>
+
+              <% end %>
+            </h5>
+                      
           <% if bed.occupied %>
             <form class="bed-form">
               <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
@@ -39,11 +45,16 @@
               <input type="hidden" name="medical_organization" value="">
               <input type="hidden" name="phone" value="">
               <input type="hidden" name="address" value="">
+              <input type="hidden" name="birth_date" value=""> <!-- Добавлено -->
               <input type="hidden" name="diagnosis" value="">
               
               <div class="mb-1">
                 <span class="badge bg-danger">Занято</span>
                 <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
+                
+                <% if bed.birth_date.present? %> <!-- Добавлено -->
+                  <p class="text-muted small mb-1">Дата рождения: <%= bed.birth_date.strftime('%d.%m.%Y') %></p>
+                <% end %>
                 
                 <% if bed.medical_organization.present? %>
                   <p class="text-muted small mb-1">Организация: <%= bed.medical_organization %></p>
@@ -71,6 +82,7 @@
               <div class="mb-1">
                 <span class="badge bg-success">Свободно</span>
                 <input type="text" name="patient_name" class="form-control form-control-sm mt-1" placeholder="ФИО" required>
+                <input type="text" name="birth_date" class="form-control form-control-sm mt-1 date-picker-birth" placeholder="Дата рождения (дд.мм.гггг)"> <!-- Добавлено -->
                 <input type="text" name="medical_organization" class="form-control form-control-sm mt-1" placeholder="Мед. организация" required>
                 <input type="tel" name="phone" class="form-control form-control-sm mt-1" placeholder="Телефон" required>
                 <input type="text" name="address" class="form-control form-control-sm mt-1" placeholder="Адрес" required>
@@ -90,11 +102,15 @@
   <% end %>
 </div>
 
-<!-- Инвазивка (19-23) - только по понедельникам, средам и пятницам -->
 <% if @beds[:invasive].any? %>
   <div class="invasive-section mt-5 pt-4 border-top border-3 border-warning">
     <h4 class="text-center mb-4 text-warning">
-      <i class="bi bi-exclamation-triangle-fill me-2"></i>Инвазивные койки
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      <% if @target_date < Date.new(2025, 8, 18) %>
+        Инвазивные койки (19-23)
+      <% else %>
+        Инвазивные койки (14-18)
+      <% end %>
     </h4>
     
     <div class="row row-cols-2 row-cols-md-4 g-4">
@@ -102,40 +118,52 @@
         <div class="col">
           <div class="card bed-card invasive-card <%= 'occupied-card' if bed.occupied %> h-100" style="padding: 0.3rem;" data-date="<%= bed.date.strftime('%Y-%m-%d') %>">
             <div class="card-body text-center p-2">
-              <h5 class="card-title fs-6 mb-1">Койка #<%= bed.bed_index %></h5>
+              <h5 class="card-title fs-6 mb-1">
+                Койка #<%= bed.bed_index %> 
+                <% if (@target_date < Date.new(2025, 8, 18) && bed.bed_index >= 19) || 
+                      (@target_date >= Date.new(2025, 8, 18) && bed.bed_index >= 14) %>
+                  (инвазивная)
+                <% end %>
+              </h5>
               
-              <% if bed.occupied %>
-                <form class="bed-form">
-                  <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
-                  <input type="hidden" name="bed_index" value="<%= bed.bed_index %>">
-                  <input type="hidden" name="patient_name" value="">
-                  <input type="hidden" name="medical_organization" value="">
-                  <input type="hidden" name="phone" value="">
-                  <input type="hidden" name="address" value="">
-                  <input type="hidden" name="diagnosis" value="">
+            <% if bed.occupied %>
+              <form class="bed-form">
+                <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
+                <input type="hidden" name="bed_index" value="<%= bed.bed_index %>">
+                <input type="hidden" name="patient_name" value="">
+                <input type="hidden" name="medical_organization" value="">
+                <input type="hidden" name="phone" value="">
+                <input type="hidden" name="address" value="">
+                <input type="hidden" name="birth_date" value=""> <!-- Добавлено -->
+                <input type="hidden" name="diagnosis" value="">
+                
+                <div class="mb-1">
+                  <span class="badge bg-danger">Занято</span>
+                  <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
                   
-                  <div class="mb-1">
-                    <span class="badge bg-warning text-dark">Занято</span>
-                    <p class="mt-1 mb-1 fw-bold small"><%= bed.patient_name %></p>
-                    
-                    <% if bed.medical_organization.present? %>
-                      <p class="text-muted small mb-1">Организация: <%= bed.medical_organization %></p>
-                    <% end %>
-                    
-                    <% if bed.phone.present? %>
-                      <p class="text-muted small mb-1">Телефон: <%= bed.phone %></p>
-                    <% end %>
-                    
-                    <% if bed.address.present? %>
-                      <p class="text-muted small mb-1">Адрес: <%= bed.address %></p>
-                    <% end %>
-                    
-                    <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
-                      <p class="text-muted small mb-1">Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></p>
-                    <% end %>
-                  </div>
-                  <button type="submit" class="btn btn-sm btn-outline-warning w-100 py-1">Освободить</button>
-                </form>
+                  <% if bed.birth_date.present? %> <!-- Добавлено -->
+                    <p class="text-muted small mb-1">Дата рождения: <%= bed.birth_date.strftime('%d.%m.%Y') %></p>
+                  <% end %>
+                  
+                  <% if bed.medical_organization.present? %>
+                    <p class="text-muted small mb-1">Организация: <%= bed.medical_organization %></p>
+                  <% end %>
+                  
+                  <% if bed.phone.present? %>
+                    <p class="text-muted small mb-1">Телефон: <%= bed.phone %></p>
+                  <% end %>
+                  
+                  <% if bed.address.present? %>
+                    <p class="text-muted small mb-1">Адрес: <%= bed.address %></p>
+                  <% end %>
+                  
+                  <% if bed.diagnosis_code.present? || bed.diagnosis_name.present? %>
+                    <p class="text-muted small mb-1">Диагноз: <%= [bed.diagnosis_code, bed.diagnosis_name].compact.join(' ') %></p>
+                  <% end %>
+                </div>
+                <button type="submit" class="btn btn-sm btn-outline-danger w-100 py-1">Освободить</button>
+              </form>
+
               <% else %>
                 <form class="bed-form">
                   <input type="hidden" name="date" value="<%= bed.date.strftime('%Y-%m-%d') %>">
@@ -144,6 +172,7 @@
                   <div class="mb-1">
                     <span class="badge bg-warning text-dark">Свободно</span>
                     <input type="text" name="patient_name" class="form-control form-control-sm mt-1" placeholder="ФИО" required>
+                    <input type="text" name="birth_date" class="form-control form-control-sm mt-1 date-picker-birth" placeholder="Дата рождения (дд.мм.гггг)">
                     <input type="text" name="medical_organization" class="form-control form-control-sm mt-1" placeholder="Мед. организация" required>
                     <input type="tel" name="phone" class="form-control form-control-sm mt-1" placeholder="Телефон" required>
                     <input type="text" name="address" class="form-control form-control-sm mt-1" placeholder="Адрес" required>

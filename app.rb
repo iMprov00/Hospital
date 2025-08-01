@@ -3,8 +3,9 @@ require 'rubygems'          # Подключение RubyGems для управ�
 require 'sinatra'           # Подключение фреймворка Sinatra
 require 'sinatra/reloader'  # Подключение модуля перезагрузки для разработки
 require 'sinatra/activerecord'  # Подключение ActiveRecord для работы с БД
-# require 'axlsx'
+require 'caxlsx'
 require 'sinatra/flash'
+require 'csv' 
 
 require_relative 'models/bed_day'  # Подключение модели BedDay
 
@@ -28,9 +29,10 @@ post '/occupy' do
     
     bed.update!(
       patient_name: params[:patient_name],
-      medical_organization: params[:medical_organization], # Добавлено
-      phone: params[:phone], # Добавлено
-      address: params[:address], # Добавлено
+      medical_organization: params[:medical_organization],
+      phone: params[:phone],
+      address: params[:address],
+      birth_date: params[:birth_date] ? Date.parse(params[:birth_date]) : nil, # Добавлено
       diagnosis_code: diagnosis_parts[0],
       diagnosis_name: diagnosis_parts[1] || '',
       occupied: true
@@ -43,8 +45,11 @@ end
 get '/occupied_dates' do
   content_type :json
   
-  # Для SQLite
-  fully_occupied_dates = BedDay
+  transition_date = Date.new(2025, 8, 18)
+  
+  # Для дат до 18.08.2025
+  old_logic_dates = BedDay
+    .where("date < ?", transition_date)
     .group(:date)
     .select(:date)
     .having(
@@ -53,7 +58,15 @@ get '/occupied_dates' do
     )
     .pluck(:date)
   
-  fully_occupied_dates.to_json
+  # Для дат после 18.08.2025
+  new_logic_dates = BedDay
+    .where("date >= ?", transition_date)
+    .group(:date)
+    .select(:date)
+    .having("COUNT(*) >= 18")
+    .pluck(:date)
+  
+  (old_logic_dates + new_logic_dates).to_json
 end
 
 get '/occupied_list' do
@@ -62,6 +75,175 @@ get '/occupied_list' do
                          .order(:bed_index)
   erb :occupied_list
 end
+ 
+ 
+ 
+ 
+get '/export/occupied_list_excel' do
+  puts "DEBUG: Экспорт в Excel вызван для даты #{params[:date]}"
+  
+  date = params[:date] ? Date.parse(params[:date]) : Date.today
+  filename = "occupied_beds_#{date.strftime('%d_%m_%Y')}.xls"
+  
+  @occupied_beds = BedDay.where(date: date, occupied: true)
+                         .order(:bed_index)
+  
+  puts "DEBUG: Найдено #{@occupied_beds.count} занятых коек"
+  
+  # Создаем HTML таблицу, которую Excel откроет как XLS
+  html_content = <<~HTML
+    <html xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="ProgId" content="Excel.Sheet">
+      <meta name="Generator" content="Microsoft Excel">
+      <title>Занятые койки на #{date.strftime('%d.%m.%Y')}</title>
+      <style>
+        <!--
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          mso-displayed-decimal-separator: "\\,";
+          mso-displayed-thousand-separator: " ";
+        }
+        th {
+          background-color: #4F81BD;
+          color: white;
+          font-weight: bold;
+          text-align: center;
+          padding: 8px;
+          border: 1px solid #ddd;
+          mso-pattern: solid #4F81BD;
+        }
+        td {
+          padding: 8px;
+          border: 1px solid #ddd;
+          mso-number-format: "\\@";
+        }
+        .invasive {
+          background-color: #FFF2CC;
+        }
+        .diagnosis-cell {
+          white-space: pre-wrap; /* Сохраняет переносы строк */
+          word-wrap: break-word;
+          mso-number-format: "\\@";
+        }
+        .number-cell {
+          mso-number-format: "0";
+          text-align: center;
+        }
+        -->
+      </style>
+    </head>
+    <body>
+      <h1>Список занятых коек на #{date.strftime('%d.%m.%Y')}</h1>
+      <p>Отчет сформирован: #{Time.now.strftime('%d.%m.%Y %H:%M')}</p>
+      
+      <table>
+        <tr>
+          <th width="80">№ Койки</th>
+          <th width="200">ФИО пациента</th>
+          <th width="100">Дата рождения</th>
+          <th width="150">Мед. организация</th>
+          <th width="120">Телефон</th>
+          <th width="200">Адрес</th>
+          <th width="300">Диагноз</th>
+        </tr>
+        
+        #{@occupied_beds.map do |bed|
+          birth_date = bed.birth_date ? bed.birth_date.strftime('%d.%m.%Y') : ''
+          # Формируем диагноз с переносом строки между кодом и названием
+          diagnosis = if bed.diagnosis_code.present? && bed.diagnosis_name.present?
+            "#{bed.diagnosis_code}\n#{bed.diagnosis_name}"
+          elsif bed.diagnosis_code.present?
+            bed.diagnosis_code
+          elsif bed.diagnosis_name.present?
+            bed.diagnosis_name
+          else
+            ''
+          end
+          
+          invasive_class = bed.bed_index > 18 ? ' class="invasive"' : ''
+          
+          "<tr#{invasive_class}>
+            <td class='number-cell'>#{bed.bed_index}</td>
+            <td>#{bed.patient_name || ''}</td>
+            <td>#{birth_date}</td>
+            <td>#{bed.medical_organization || ''}</td>
+            <td>#{bed.phone || ''}</td>
+            <td>#{bed.address || ''}</td>
+            <td class='diagnosis-cell'>#{diagnosis}</td>
+          </tr>"
+        end.join("\n")}
+      </table>
+      
+      <p>Всего занято коек: #{@occupied_beds.count}</p>
+    </body>
+    </html>
+  HTML
+  
+  # Устанавливаем заголовки
+  content_type 'application/vnd.ms-excel'
+  headers['Content-Disposition'] = "attachment; filename=#{filename}"
+  
+  html_content
+end
+
+
+
+
+
+  # Экспорт в Битрикс
+
+get '/export/bitrix_csv' do
+  puts "DEBUG: Экспорт для Битрикса вызван для даты #{params[:date]}"
+  
+  date = params[:date] ? Date.parse(params[:date]) : Date.today
+  filename = "bitrix_gospitalizaciya_#{date.strftime('%d_%m_%Y')}.csv"
+  
+  @occupied_beds = BedDay.where(date: date, occupied: true)
+                         .order(:bed_index)
+  
+  puts "DEBUG: Найдено #{@occupied_beds.count} занятых коек для Битрикса"
+  
+  # Создаем CSV в формате для Битрикса
+  csv_content = CSV.generate(col_sep: ';', encoding: 'UTF-8') do |csv|
+    # Заголовки столбцов (в точности как в примере)
+    csv << ['Название', 'Описание', 'Крайний срок', 'Теги', 'Проект']
+    
+    # Данные для каждой занятой койки
+    @occupied_beds.each do |bed|
+      # Название - ФИО пациентки
+      title = bed.patient_name || ''
+      
+      # Крайний срок - Дата из списка (в формате дд.мм.гггг чч:мм)
+      deadline = "#{date.strftime('%d.%m.%Y')} 9:30"  # Фиксированное время 9:30
+      
+      # Описание - у всех одинаковое "Госпитализация в стационар"
+      description = 'Госпитализация в стационар'
+      
+      # Теги - у всех одинаковое "Госпитализация в стационар"
+      tags = 'Госпитализация в стационар'
+      
+      # Проект - у всех одинаковое "Посетители"
+      project = 'Посетители'
+      
+      csv << [title, description, deadline, tags, project]
+    end
+  end
+  
+  # Устанавливаем заголовки
+  content_type 'text/csv; charset=UTF-8'
+  headers['Content-Disposition'] = "attachment; filename=#{filename}"
+  
+  # Добавляем BOM для правильной кодировки в Excel/Битрикс
+  "\uFEFF" + csv_content
+end
+
+
+ # Отчеты
 
 get '/reports' do
   erb :reports  # Это будет рендерить views/reports.erb
@@ -220,14 +402,9 @@ get '/check_bed' do
   {
     occupied: bed&.occupied? || false,
     patient_name: bed&.patient_name || '',
+    birth_date: bed&.birth_date&.strftime('%d.%m.%Y') || '', # Добавлено
     diagnosis: [bed&.diagnosis_code, bed&.diagnosis_name].compact.join(' ')
   }.to_json
-end
-
-get '/occupied_list' do
-  @target_date = params[:date] ? Date.parse(params[:date]) : Date.today
-  @occupied_beds = BedDay.where(date: @target_date, occupied: true).order(:bed_index)
-  erb :occupied_list
 end
 
 before '/admin/*' do
@@ -235,9 +412,12 @@ before '/admin/*' do
 end
 
 helpers do    # Блок вспомогательных методов
- def load_or_initialize_beds(date)
-
-    weekday = date.wday
+def load_or_initialize_beds(date)
+  transition_date = Date.new(2025, 8, 18)
+  weekday = date.wday
+  
+  if date < transition_date
+    # Старая логика (до 18.08.2025)
     max_beds = [1, 3, 5].include?(weekday) ? 23 : 18
     
     beds = BedDay.where(date: date).index_by(&:bed_index)
@@ -246,8 +426,19 @@ helpers do    # Блок вспомогательных методов
       regular: (1..18).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) },
       invasive: [1,3,5].include?(weekday) ? (19..23).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) } : []
     }
-  
+  else
+    # Новая логика (с 18.08.2025)
+    beds = BedDay.where(date: date).index_by(&:bed_index)
+    
+    # Определяем, нужно ли показывать инвазивные койки (только в Пн, Ср, Пт)
+    show_invasive = [1,3,5].include?(weekday)
+    
+    {
+      regular: (1..(show_invasive ? 13 : 18)).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) },
+      invasive: show_invasive ? (14..18).map { |idx| beds[idx] || BedDay.new(date: date, bed_index: idx, occupied: false) } : []
+    }
   end
+end
 
   def protected!
     return if authorized?
