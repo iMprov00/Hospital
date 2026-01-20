@@ -1,2 +1,9978 @@
 
-db/hospital.db
+# Ignore database files
+db/*.db
+db/backups/
+
+# Ignore bundler config
+.bundle/
+
+# Ignore environment variables
+.env
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore Ruby version manager files
+.ruby-version
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore dependency directories
+vendor/
+
+# Ignore test coverage files
+coverage/
+
+# Ignore Rails-specific files
+*.sqlite3
+*.sqlite3-journal
+public/system/
+public/uploads/
+storage/
+
+# Ignore node modules
+node_modules/
+
+# Ignore Yarn files
+yarn-error.log
+yarn-debug.log
+
+# Ignore Rails cache
+ tmp/cache/
+
+# Ignore Rails sockets
+ tmp/sockets/
+
+# Ignore Rails pids
+ tmp/pids/
+
+# Ignore Rails secrets
+config/secrets.yml
+
+# Ignore Rails credentials
+config/credentials.yml.enc
+config/master.key
+
+# Ignore Rails environment files
+config/environments/*.local
+
+# Ignore Rails initializers
+config/initializers/*.local
+
+# Ignore Rails locales
+config/locales/*.local
+
+# Ignore Rails routes
+config/routes/*.local
+
+# Ignore Rails assets
+public/assets/
+
+# Ignore Rails packs
+public/packs/
+
+# Ignore Rails test files
+public/test/
+
+# Ignore Rails development files
+public/development/
+
+# Ignore Rails production files
+public/production/
+
+# Ignore Rails staging files
+public/staging/
+
+# Ignore Rails backup files
+public/backup/
+
+# Ignore Rails old files
+public/old/
+
+# Ignore Rails archive files
+public/archive/
+
+# Ignore Rails dump files
+public/dump/
+
+# Ignore Rails export files
+public/export/
+
+# Ignore Rails import files
+public/import/
+
+# Ignore Rails temp files
+public/temp/
+
+# Ignore Rails upload files
+public/upload/
+
+# Ignore Rails download files
+public/download/
+
+# Ignore Rails cache files
+public/cache/
+
+# Ignore Rails session files
+public/session/
+
+# Ignore Rails cookie files
+public/cookie/
+
+# Ignore Rails token files
+public/token/
+
+# Ignore Rails key files
+public/key/
+
+# Ignore Rails cert files
+public/cert/
+
+# Ignore Rails crl files
+public/crl/
+
+# Ignore Rails csr files
+public/csr/
+
+# Ignore Rails pem files
+public/pem/
+
+# Ignore Rails der files
+public/der/
+
+# Ignore Rails crt files
+public/crt/
+
+# Ignore Rails cer files
+public/cer/
+
+# Ignore Rails p7b files
+public/p7b/
+
+# Ignore Rails p7c files
+public/p7c/
+
+# Ignore Rails p12 files
+public/p12/
+
+# Ignore Rails pfx files
+public/pfx/
+
+# Ignore Rails p7r files
+public/p7r/
+
+# Ignore Rails p7s files
+public/p7s/
+
+# Ignore Rails spc files
+public/spc/
+
+# Ignore Rails p7m files
+public/p7m/
+
+# Ignore Rails jar files
+public/jar/
+
+# Ignore Rails war files
+public/war/
+
+# Ignore Rails ear files
+public/ear/
+
+# Ignore Rails zip files
+public/zip/
+
+# Ignore Rails rar files
+public/rar/
+
+# Ignore Rails tar files
+public/tar/
+
+# Ignore Rails gz files
+public/gz/
+
+# Ignore Rails bz2 files
+public/bz2/
+
+# Ignore Rails 7z files
+public/7z/
+
+# Ignore Rails xz files
+public/xz/
+
+# Ignore Rails lz files
+public/lz/
+
+# Ignore Rails lzma files
+public/lzma/
+
+# Ignore Rails lzo files
+public/lzo/
+
+# Ignore Rails lz4 files
+public/lz4/
+
+# Ignore Rails lzop files
+public/lzop/
+
+# Ignore Rails z files
+public/z/
+
+# Ignore Rails tgz files
+public/tgz/
+
+# Ignore Rails tbz files
+public/tbz/
+
+# Ignore Rails tbz2 files
+public/tbz2/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/tz7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ignore Rails tlz files
+public/tlz/
+
+# Ignore Rails tlzma files
+public/tlzma/
+
+# Ignore Rails tlzo files
+public/tlzo/
+
+# Ignore Rails tlz4 files
+public/tlz4/
+
+# Ignore Rails tlzop files
+public/tlzop/
+
+# Ignore Rails tz files
+public/tz/
+
+# Ignore Rails tz2 files
+public/tz2/
+
+# Ignore Rails tz4 files
+public/tz4/
+
+# Ignore Rails tzop files
+public/tzop/
+
+# Ignore Rails t7z files
+public/t7z/
+
+# Ignore Rails txz files
+public/txz/
+
+# Ign
